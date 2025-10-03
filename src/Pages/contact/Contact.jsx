@@ -34,7 +34,7 @@ const Contact = () => {
             <div className="w-2 h-2 bg-lime-400 rounded-full"></div>
             <span className="text-lime-400 text-lg font-mono">Get in Touch</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold">
+          <h1 className="text-3xl md:text-4xl font-bold">
             <span className="text-white">Let's create </span>
             <span className="text-gray-400">together!</span>
           </h1>
