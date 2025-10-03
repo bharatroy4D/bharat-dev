@@ -29,7 +29,7 @@ const About = () => {
   ];
 
   return (
-    <div className="bg-slate-900 text-white min-h-screen py-16 px-8 relative overflow-hidden rounded-2xl border border-cyan-500">
+    <div className="bg-slate-900 text-white min-h-screen py-16 px-8 relative overflow-hidden rounded-2xl border border-orange-500">
 
       {/* Decorative background */}
       <div className="absolute inset-0 opacity-20">
