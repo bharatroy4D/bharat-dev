@@ -24,7 +24,7 @@ const Home = () => {
     };
 
     return (
-        <div className="min-h-screen bg-slate-800 text-white rounded-2xl relative overflow-hidden my-7">
+        <div className=" bg-slate-800 text-white rounded-2xl relative overflow-hidden border border-orange-500 my-7">
 
             {/* Background decorative elements */}
             <div className="absolute inset-0 opacity-20">
@@ -32,7 +32,7 @@ const Home = () => {
                 <div className="absolute bottom-20 right-20 w-96 h-96 bg-cyan-700 rounded-full blur-3xl animate-[pulse_6s_ease-in-out_infinite]"></div>
             </div>
 
-            <div className="relative z-10 container mx-auto px-8 py-16">
+            <div className="relative z-10 container mx-auto px-8 py-">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-screen">
 
                     {/* Left Side - Profile Image with animation */}
@@ -47,14 +47,14 @@ const Home = () => {
                             {/* Soft glowing border effect */}
                             <motion.div
                                 variants={item}
-                                className="absolute inset-0 bg-gradient-to-br from-cyan-600 via-blue-500 to-cyan-600 
+                                className="absolute inset-0 
                            rounded-full blur-xl opacity-30 animate-[pulse_5s_ease-in-out_infinite]"
                             ></motion.div>
 
                             {/* Profile circle with border */}
                             <motion.div
                                 variants={item}
-                                className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-cyan-400 shadow-xl shadow-cyan-500/30"
+                                className="relative w-80 h-80 lg:w-96 lg:h-96  overflow-hidden rounded-full border"
                             >
                                 <motion.img
                                     variants={item}
@@ -86,7 +86,6 @@ const Home = () => {
                             Mr.Bharat Roy
                         </motion.h1>
                         <motion.h2 variants={item} className="text-xl lg:text-2xl">
-                            <span className="text-gray-300">And I'm a </span> <br />
                             <span className="text-yellow-400">{'{'}</span>
                             <span className="text-cyan-400">
                                 <Typewriter
