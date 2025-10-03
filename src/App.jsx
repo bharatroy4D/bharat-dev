@@ -3,6 +3,7 @@ import Navbar from './Components/navbar/Navbar';
 import Home from './Pages/Home/Home';
 import About from './Pages/about/About';
 import Contact from './Pages/contact/Contact';
+import Footer from './Components/footer/Footer';
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
           <About />
           <Contact />
         </div>
+        <Footer />
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ const Contact = () => {
 
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-900/70 via-slate-800/70 to-teal-900/70 text-white my-10 rounded-2xl border border-orange-500 py-10 px-8">
+        <div className="min-h-screen bg-gradient-to-br from-slate-900/70 via-slate-800/70 to-teal-900/70 text-white mt-10 rounded-2xl  py-10 px-8">
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="mb-12">
