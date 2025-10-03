@@ -20,13 +20,13 @@ const Navbar = () => {
 
     return (
         <div className='poppins'>
-            <div className=' flex items-center justify-between bg-gray-800 rounded-2xl border border-orange-500 p-3 '>
+            <div className=' flex items-center justify-between bg-gray-800 rounded-2xl hover:shadow shadow-amber-100 border border-orange-500 p-3 '>
                 <h1 className='text-2xl roboto'> Port<span className='text-yellow-400'>folio</span></h1>
                 <div className='flex items-center gap-12'>
                     {
                         menuLink.map(menu => (
                             <div key={menu.id} className='flex items-center gap-2 cursor-pointer hover:text-blue-500 duration-300'>
-                                <span className='text-slate-400'>{menu.icon}</span>
+                                <span className='text-green-300'>{menu.icon}</span>
                                 <h1>{menu.name}</h1>
                             </div>
                         ))

@@ -1,103 +1,146 @@
-import React from 'react';
-import { Facebook, Twitter, Linkedin, Instagram, Send } from 'lucide-react';
+import React from "react";
+import { Facebook, Twitter, Linkedin, Instagram, Send } from "lucide-react";
+import { motion } from "framer-motion";
+import { Typewriter } from "react-simple-typewriter";
+
 
 const Home = () => {
+
+    // Container animation for stagger
+    const container = {
+        hidden: { opacity: 0 },
+        show: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.3
+            }
+        },
+    };
+
+    // Each item animation
+    const item = {
+        hidden: { opacity: 0, y: 20 },
+        show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+    };
+
     return (
         <div className="min-h-screen bg-slate-800 text-white rounded-2xl relative overflow-hidden my-7">
+
             {/* Background decorative elements */}
             <div className="absolute inset-0 opacity-20">
-                <div className="absolute top-20 left-20 w-64 h-64 bg-blue-500 rounded-full blur-3xl"></div>
-                <div className="absolute bottom-20 right-20 w-96 h-96 bg-cyan-500 rounded-full blur-3xl"></div>
+                <div className="absolute top-20 left-20 w-64 h-64 bg-blue-600 rounded-full blur-3xl animate-[pulse_5s_ease-in-out_infinite]"></div>
+                <div className="absolute bottom-20 right-20 w-96 h-96 bg-cyan-700 rounded-full blur-3xl animate-[pulse_6s_ease-in-out_infinite]"></div>
             </div>
 
             <div className="relative z-10 container mx-auto px-8 py-16">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-screen">
-                    {/* Left Side - Profile Image */}
-                    <div className="flex justify-center lg:justify-start">
-                        <div className="relative">
-                            {/* Glowing border effect */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-cyan-400 via-blue-500 to-cyan-400 rounded-full blur-2xl opacity-60 animate-pulse"></div>
+
+                    {/* Left Side - Profile Image with animation */}
+                    <motion.div
+                        className="flex justify-center lg:justify-start"
+                        variants={container}
+                        initial="hidden"
+                        animate="show"
+                    >
+                        <motion.div variants={item} className="relative">
+
+                            {/* Soft glowing border effect */}
+                            <motion.div
+                                variants={item}
+                                className="absolute inset-0 bg-gradient-to-br from-cyan-600 via-blue-500 to-cyan-600 
+                           rounded-full blur-xl opacity-30 animate-[pulse_5s_ease-in-out_infinite]"
+                            ></motion.div>
 
                             {/* Profile circle with border */}
-                            <div className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-cyan-400 shadow-2xl shadow-cyan-500/50">
-                                {/* Placeholder for profile image - replace with actual image */}
-                                <div className="w-full h-full bg-gradient-to-br from-blue-600 to-slate-800 flex items-center justify-center">
-                                    <img src="https://i.ibb.co.com/N6KkdTV8/hero-img.png" alt="" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            <motion.div
+                                variants={item}
+                                className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-cyan-400 shadow-xl shadow-cyan-500/30"
+                            >
+                                <motion.img
+                                    variants={item}
+                                    src="https://i.ibb.co/N6KkdTV8/hero-img.png"
+                                    alt="Profile"
+                                    className="w-full h-full object-cover"
+                                />
+                            </motion.div>
+                        </motion.div>
+                    </motion.div>
 
-                    {/* Right Side - Content */}
-                    <div className="space-y-6 text-center lg:text-left">
-                        {/* Greeting */}
-                        <div className="text-lg text-gray-300">
+                    {/* Right Side - Content with animation */}
+                    <motion.div
+                        className="space-y-6 text-center lg:text-left"
+                        variants={container}
+                        initial="hidden"
+                        animate="show"
+                    >
+                        <motion.div variants={item} className="text-lg text-gray-300">
                             Hello, I'm
-                        </div>
+                        </motion.div>
 
-                        {/* Name */}
-                        <h1 className="text-4xl lg:text-5xl font-bold text-white roboto">
+                        <motion.h1
+                            variants={item}
+                            className="text-4xl lg:text-5xl font-bold roboto
+             bg-gradient-to-r from-gray-300 via-gray-400 to-gray-500 
+             bg-clip-text text-transparent"
+                        >
                             Mr.Bharat Roy
-                        </h1>
-
-                        {/* Title with gradient */}
-                        <h2 className="text-2xl lg:text-3xl">
+                        </motion.h1>
+                        <motion.h2 variants={item} className="text-xl lg:text-2xl">
                             <span className="text-gray-300">And I'm a </span> <br />
-                            <h2 className="">
-                                <span className="text-yellow-400">{'{'}</span>
-                                <span className="text-cyan-400">Mern stack Developer</span>
-                                <span className="text-yellow-400">{'}'}</span>
-                            </h2>
-                        </h2>
-
-                        {/* Description */}
-                        <p className="text-gray-300 text-lg leading-relaxed max-w-2xl">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lacus turpis lacus
-                            scelerisque quis volutpat porta consectetur, suspendisse imperdiet ut pharetra?
-                        </p>
-
-                      {/* Social Media Icons */}
-<div className="flex gap-4 justify-center lg:justify-start">
-  <a
-    href="#"
-    className="w-10 h-10 flex items-center justify-center rounded border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-slate-900 transition-all shadow-[0_0_10px_rgba(249,115,22,0.7)]"
-  >
-    <Facebook className="w-5 h-5" />
-  </a>
-
-  <a
-    href="#"
-    className="w-10 h-10 flex items-center justify-center rounded border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-slate-900 transition-all shadow-[0_0_10px_rgba(249,115,22,0.7)]"
-  >
-    <Twitter className="w-5 h-5" />
-  </a>
-
-  <a
-    href="#"
-    className="w-10 h-10 flex items-center justify-center rounded border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-slate-900 transition-all shadow-[0_0_10px_rgba(249,115,22,0.7)]"
-  >
-    <Linkedin className="w-5 h-5" />
-  </a>
-
-  <a
-    href="#"
-    className="w-10 h-10 flex items-center justify-center rounded border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-slate-900 transition-all shadow-[0_0_10px_rgba(249,115,22,0.7)]"
-  >
-    <Instagram className="w-5 h-5" />
-  </a>
-</div>
+                            <span className="text-yellow-400">{'{'}</span>
+                            <span className="text-cyan-400">
+                                <Typewriter
+                                    words={["Mern stack Developer", "React Enthusiast"]}
+                                    loop={true}
+                                    cursor
+                                    cursorStyle="_"
+                                    typeSpeed={80}
+                                    deleteSpeed={50}
+                                    delaySpeed={1500}
+                                />
+                            </span>
+                            <span className="text-yellow-400">{'}'}</span>
+                        </motion.h2>
 
 
-                        {/* CTA Buttons */}
-                        <div className="flex gap-4 justify-center lg:justify-start pt-4">
-                            <button className="px-8 py-3 bg-cyan-500 hover:bg-cyan-600 text-white rounded font-medium transition-all shadow-lg shadow-cyan-500/30">
+                        <motion.p variants={item} className="text-gray-300  leading-relaxed max-w-2xl">
+                            I am a passionate MERN-Stack Developer with expertise in modern web technologies. I specialize in creating exceptional user experiences with clean, efficient code and innovative solutions.
+                        </motion.p>
+
+                        <motion.div variants={item} className="flex gap-4 justify-center lg:justify-start">
+                            {[Facebook, Twitter, Linkedin, Instagram].map((Icon, i) => (
+                                <motion.a
+                                    key={i}
+                                    href="#"
+                                    variants={item}
+                                    className="w-10 h-10 flex items-center justify-center rounded border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-slate-900 transition-all shadow-[0_0_10px_rgba(253,224,71,0.8)]"
+                                    whileHover={{ scale: 1.2, rotate: 10 }}
+                                    whileTap={{ scale: 0.9 }}
+                                >
+                                    <Icon className="w-5 h-5" />
+                                </motion.a>
+                            ))}
+                        </motion.div>
+
+                        <motion.div variants={item} className="flex gap-4 justify-center lg:justify-start pt-4">
+                            <motion.button
+                                className="px-8 py-3 bg-cyan-500 hover:bg-cyan-600 text-white rounded font-medium transition-all shadow-lg shadow-cyan-500/30"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                            >
                                 Hire Me
-                            </button>
-                            <button className="px-8 py-3 border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-slate-900 rounded font-medium transition-all flex items-center gap-2">
+                            </motion.button>
+
+                            <motion.button
+                                className="px-8 py-3 border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-slate-900 rounded font-medium transition-all flex items-center gap-2"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                            >
                                 Contact Me <Send className="w-4 h-4" />
-                            </button>
-                        </div>
-                    </div>
+                            </motion.button>
+                        </motion.div>
+
+                    </motion.div>
                 </div>
             </div>
         </div>
