@@ -43,7 +43,7 @@ const About = () => {
         initial="hidden"
         animate="show"
       >
-        <motion.h1 variants={item} className="text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 mb-4">
+        <motion.h1 variants={item} className="text-xl lg:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 mb-4">
           About Me
         </motion.h1>
 
