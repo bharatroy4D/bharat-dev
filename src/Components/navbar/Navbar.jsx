@@ -23,7 +23,7 @@ const Navbar = () => {
         <div className='poppins'>
             <div className=' flex items-center justify-between bg-gray-800 rounded-2xl border border-orange-500 p-3 '>
                 <h1 className='text-2xl roboto'> Port<span className='text-yellow-400'>folio</span></h1>
-                <div className='flex items-center gap-10'>
+                <div className='flex items-center gap-8'>
                     {
                         menuLink.map(menu => (
                             <div key={menu.id} className='flex items-center gap-2 cursor-pointer hover:text-blue-500 duration-300'>
@@ -47,7 +47,7 @@ const Navbar = () => {
                     {/* Resume Button */}
                     <button className="flex items-center gap-2 
     bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 
-    text-white px-4 py-2 rounded shadow-md 
+    text-white px-4 py-2 rounded-full shadow-md
     hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 
     duration-300">
                         <FaDownload className="text-white" />

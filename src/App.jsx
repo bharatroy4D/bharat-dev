@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './Components/navbar/Navbar';
 import Home from './Pages/Home/Home';
+import About from './Pages/about/About';
 
 const App = () => {
   return (
@@ -23,10 +24,11 @@ const App = () => {
           </svg>
         </div>
 
-      <div className='container mx-auto  py-6 px-4 lg:px-10 poppins'>
+        <div className='container mx-auto  py-6 px-4 lg:px-10 poppins'>
           <Navbar />
-        <Home />
-      </div>
+          <Home />
+          <About />
+        </div>
       </div>
     </div>
   );
