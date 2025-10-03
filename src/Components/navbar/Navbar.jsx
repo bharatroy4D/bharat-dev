@@ -19,14 +19,14 @@ const Navbar = () => {
     };
 
     return (
-        <div className='container mx-auto  py-4 px-4 lg:px-10'>
-            <div className=' flex items-center justify-between rounded-2xl border p-3 '>
-                <h1 className='text-2xl font-bold'> Portfolio</h1>
+        <div className='poppins'>
+            <div className=' flex items-center justify-between bg-gray-800 rounded-2xl border border-orange-500 p-3 '>
+                <h1 className='text-2xl roboto'> Port<span className='text-yellow-400'>folio</span></h1>
                 <div className='flex items-center gap-12'>
                     {
                         menuLink.map(menu => (
                             <div key={menu.id} className='flex items-center gap-2 cursor-pointer hover:text-blue-500 duration-300'>
-                                <span>{menu.icon}</span>
+                                <span className='text-slate-400'>{menu.icon}</span>
                                 <h1>{menu.name}</h1>
                             </div>
                         ))
@@ -34,7 +34,7 @@ const Navbar = () => {
                 </div>
 
                 {/* Right Side Actions */}
-                <div className='flex items-center gap-4'>
+                <div className='flex items-center gap-4 '>
                     {/* Toggle Theme Button */}
                     <button
                         onClick={handleToggle}
