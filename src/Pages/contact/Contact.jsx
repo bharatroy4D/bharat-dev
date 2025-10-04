@@ -96,7 +96,7 @@ const Contact = () => {
                                 </div>
                                 <div>
                                     <h3 className="text-gray-400 text-sm mb-1">Phone Number</h3>
-                                    <p className="text-white">+8801747874773</p>
+                                    <p className="text-white">+8801714414775</p>
                                 </div>
                             </div>
                         </div>
@@ -113,7 +113,7 @@ const Contact = () => {
                                 <div className="flex-1">
                                     <h3 className="text-gray-400 text-sm mb-1">Email</h3>
                                     <div className="flex items-center gap-2">
-                                        <p className="text-lime-400 ">mehedi.hasan11023@gmail.com</p>
+                                        <p className="text-lime-400 ">bharatroy1005@gmail.com</p>
                                         <button
                                             className="p-1 hover:bg-slate-700 rounded transition-colors"
                                         >
@@ -135,7 +135,7 @@ const Contact = () => {
                                 </div>
                                 <div>
                                     <h3 className="text-gray-400 text-sm mb-1">Address</h3>
-                                    <p className="text-white">Mymensingh, Bangladesh</p>
+                                    <p className="text-white">Rangpur, Bangladesh</p>
                                 </div>
                             </div>
                         </div>

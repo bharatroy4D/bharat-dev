@@ -1,98 +1,130 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
+import Marquee from "react-fast-marquee";
+
+// React Icons Import
+import { FaReact, FaNodeJs, FaDatabase, FaLock } from "react-icons/fa";
+import { SiExpress, SiMongodb, SiRedux, SiTailwindcss } from "react-icons/si";
 
 const About = () => {
-  // Container animation for stagger
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3
-      }
-    },
-  };
-
-  // Each item animation
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  };
-
-  const skills = ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "TypeScript"];
+  const skills = [
+    <FaReact className="text-cyan-400 text-4xl" />,
+    <FaNodeJs className="text-green-500 text-4xl" />,
+    <SiExpress className="text-gray-300 text-4xl" />,
+    <SiMongodb className="text-green-600 text-4xl" />,
+    <SiTailwindcss className="text-cyan-300 text-4xl" />,
+    <SiRedux className="text-purple-500 text-4xl" />,
+    <FaDatabase className="text-yellow-400 text-4xl" />,
+    <FaLock className="text-red-400 text-4xl" />,
+  ];
 
   const experiences = [
-    { year: "2023", title: "Frontend Developer", company: "XYZ Company" },
-    { year: "2024", title: "MERN Stack Developer", company: "ABC Solutions" },
-    { year: "2025", title: "Freelance Web Developer", company: "Self-Employed" },
+    { year: "2024", title: "Frontend Developer", company: "Online Platform" },
+    { year: "2025", title: "MERN Stack Developer", company: "Offline Training" },
   ];
 
   return (
-    <div className="bg-slate-900 text-white min-h-screen py-16 px-8 relative overflow-hidden rounded-2xl border border-orange-500">
+    <div className="bg-slate-900 text-white min-h-screen border border-orange-500 py-20 px-6 lg:px-16 relative overflow-hidden">
+      {/* Background Gradient Effects */}
+      <div className="absolute top-20 left-20 w-72 h-72 bg-cyan-600 rounded-full blur-3xl opacity-20"></div>
+      <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-600 rounded-full blur-3xl opacity-20"></div>
 
-      {/* Decorative background */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-16 left-16 w-64 h-64 bg-blue-700 rounded-full blur-3xl animate-[pulse_6s_ease-in-out_infinite]"></div>
-        <div className="absolute bottom-16 right-16 w-96 h-96 bg-cyan-600 rounded-full blur-3xl animate-[pulse_7s_ease-in-out_infinite]"></div>
-      </div>
+      <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+        {/* Left Side - Text */}
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="space-y-6"
+        >
+          <h1 className="text-xl lg:text-4xl font-medium bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            About Me
+          </h1>
 
-      <motion.div
-        className="relative z-10 max-w-6xl mx-auto"
-        variants={container}
-        initial="hidden"
-        animate="show"
-      >
-        <motion.h1 variants={item} className="text-xl lg:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 mb-4">
-          About Me
-        </motion.h1>
+          <p className="text-gray-300 leading-relaxed text-lg">
+            I'm <span className="text-yellow-400 font-semibold">Bharat Roy</span>, a passionate{" "}
+            <span className="text-cyan-400 font-semibold">MERN Stack Developer</span> dedicated to building modern, responsive, and efficient web applications.
+            <br />
+            <span className="text-cyan-300 mt-2 block">
+              <Typewriter
+                words={[
+                  "Creating Interactive UIs",
+                  "Building Scalable Backends",
+                  "Delivering Quality Code",
+                ]}
+                loop={true}
+                cursor
+                cursorStyle="_"
+                typeSpeed={80}
+                deleteSpeed={50}
+                delaySpeed={1500}
+              />
+            </span>
+          </p>
 
-        <motion.p variants={item} className="text-gray-300 leading-relaxed mb-8">
-          I'm <span className="text-yellow-400">Bharat Roy</span>, a passionate <span className="text-cyan-400">MERN Stack Developer</span> dedicated to building modern, responsive, and efficient web applications.
-          <br />
-          <Typewriter
-            words={["Creating Interactive UIs", "Building Scalable Backends", "Delivering Quality Code"]}
-            loop={true}
-            cursor
-            cursorStyle="_"
-            typeSpeed={80}
-            deleteSpeed={50}
-            delaySpeed={1500}
-          />
-        </motion.p>
+          {/* Skills */}
+          <div>
+            <h2 className="text-2xl font-semibold text-cyan-400 mb-4">Skills</h2>
 
-        {/* Skills Section */}
-        <motion.div variants={item} className="mb-8">
-          <h2 className="text-2xl font-semibold text-cyan-400 mb-4">Skills</h2>
-          <div className="flex flex-wrap gap-3">
-            {skills.map((skill, i) => (
-              <span key={i} className="px-4 py-2 bg-gray-800 rounded-full border border-cyan-400 text-cyan-400 text-sm hover:bg-cyan-400 hover:text-slate-900 transition-all">
-                {skill}
-              </span>
-            ))}
+            {/* First Line (Left → Right) */}
+            <Marquee pauseOnHover={true} gradient={false} speed={60}>
+              <div className="flex gap-8">
+                {skills.map((icon, i) => (
+                  <span
+                    key={i}
+                    className="flex items-center justify-center w-12 h-12 bg-slate-800 rounded border border-cyan-400 shadow-md hover:bg-cyan-400 hover:text-slate-900 transition-all"
+                  >
+                    {icon}
+                  </span>
+                ))}
+              </div>
+            </Marquee>
+
+            {/* Second Line (Right → Left) */}
+            <Marquee pauseOnHover={true} gradient={false} speed={60} direction="right">
+              <div className="flex gap-8 mt-6">
+                {skills.map((icon, i) => (
+                  <span
+                    key={i}
+                    className="flex items-center justify-center w-12 h-12 bg-slate-800 rounded  border border-purple-400 shadow-md hover:bg-purple-400 hover:text-slate-900 transition-all"
+                  >
+                    {icon}
+                  </span>
+                ))}
+              </div>
+            </Marquee>
           </div>
         </motion.div>
 
-        {/* Experience Section */}
-        <motion.div variants={item}>
+        {/* Right Side - Experience */}
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="space-y-8"
+        >
           <h2 className="text-2xl font-semibold text-cyan-400 mb-4">Experience</h2>
-          <div className="space-y-4">
+          <div className="space-y-6">
             {experiences.map((exp, i) => (
               <motion.div
                 key={i}
-                className="p-4 bg-gray-800 rounded-lg border border-cyan-400 flex justify-between items-center hover:bg-cyan-500 hover:text-slate-900 transition-all"
-                variants={item}
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+                className="p-6 bg-slate-800 rounded-xl border border-slate-700 hover:border-cyan-400 hover:bg-slate-700 transition-all shadow-lg"
               >
-                <div>
-                  <h3 className="font-semibold text-lg">{exp.title}</h3>
-                  <p className="text-gray-300">{exp.company}</p>
+                <div className="flex justify-between items-center">
+                  <div>
+                    <h3 className="font-semibold text-lg">{exp.title}</h3>
+                    <p className="text-gray-400">{exp.company}</p>
+                  </div>
+                  <span className="text-yellow-400 font-bold">{exp.year}</span>
                 </div>
-                <span className="text-yellow-400 font-bold">{exp.year}</span>
               </motion.div>
             ))}
           </div>
         </motion.div>
-      </motion.div>
+      </div>
     </div>
   );
 };
