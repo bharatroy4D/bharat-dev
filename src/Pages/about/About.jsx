@@ -25,10 +25,10 @@ const About = () => {
   ];
 
   return (
-    <div className="bg-slate-900 text-white min-h-screen border border-orange-500 py-20 px-6 lg:px-16 relative overflow-hidden">
+    <div className="bg-slate-800 text-white min-h-screen border border-orange-500 py-20 px-6 lg:px-16 relative overflow-hidden">
       {/* Background Gradient Effects */}
-      <div className="absolute top-20 left-20 w-72 h-72 bg-cyan-600 rounded-full blur-3xl opacity-20"></div>
-      <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-600 rounded-full blur-3xl opacity-20"></div>
+      <div className="absolute top-20 left-20 w-72 h-72 bg-cyan-600/45 rounded-full blur-3xl opacity-20"></div>
+      <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-600/45 rounded-full blur-3xl opacity-20"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
         {/* Left Side - Text */}
