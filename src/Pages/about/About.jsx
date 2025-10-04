@@ -115,8 +115,8 @@ const About = () => {
               >
                 <div className="flex justify-between items-center">
                   <div>
-                    <h3 className="font-semibold text-lg">{exp.title}</h3>
-                    <p className="text-gray-400">{exp.company}</p>
+                    <h3 className=" text-lg">{exp.title}</h3>
+                    <p className="text-sm text-gray-400">{exp.company}</p>
                   </div>
                   <span className="text-yellow-400 font-bold">{exp.year}</span>
                 </div>
