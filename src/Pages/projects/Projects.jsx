@@ -1,103 +1,144 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Github, ExternalLink } from "lucide-react";
+import React, { useState } from 'react';
+import { Eye, Code, Server } from 'lucide-react';
 
-const projects = [
-  {
-    title: "E-Commerce Website",
-    description: "Full-stack MERN e-commerce application with authentication, cart, and payment integration.",
-    image: "https://i.ibb.co/PvH5QQjm/download-6.jpg",
-    tech: ["React", "Node.js", "MongoDB", "Tailwind"],
-    github: "#",
-    live: "#",
-  },
-  {
-    title: "Portfolio Website",
-    description: "Personal portfolio built with React, showcasing animations, skills, and projects.",
-    image: "https://i.ibb.co/TDgxHxbV/download.jpg",
-    tech: ["React", "Framer Motion", "Tailwind"],
-    github: "#",
-    live: "#",
-  },
-  {
-    title: "Travel Blog",
-    description: "Responsive travel blog platform with dynamic posts and modern UI design.",
-    image: "https://i.ibb.co/fGkbHTKx/download-4.jpg",
-    tech: ["Next.js", "TypeScript", "Tailwind"],
-    github: "#",
-    live: "#",
-  },
-];
-
-// Simple Tilt Card Component
-const TiltCard = ({ project }) => {
-  const [rotate, setRotate] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 20;
-    const y = ((e.clientY - rect.top) / rect.height - 0.5) * -20;
-    setRotate({ x, y });
-  };
-
-  const handleMouseLeave = () => setRotate({ x: 0, y: 0 });
-
+const ProjectCard = ({ image, title, description, technologies, links }) => {
   return (
-    <motion.div
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{ perspective: 600 }}
-      className="bg-slate-800 rounded-2xl overflow-hidden border border-cyan-700 hover:border-cyan-400 hover:shadow-lg cursor-pointer transition-all"
-    >
-      <motion.div
-        style={{
-          rotateX: rotate.y,
-          rotateY: rotate.x,
-          transition: "transform 0.1s ease-out",
-        }}
-        className=""
-      >
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-48 object-cover rounded-lg"
-        />
-        <h3 className="text-cyan-400 font-bold text-lg mt-3">{project.title}</h3>
-        <p className="text-gray-300 text-sm mt-1">{project.description}</p>
-        <div className="flex flex-wrap gap-2 mt-2">
-          {project.tech.map((t, i) => (
-            <span key={i} className="px-2 py-1 text-xs bg-cyan-700 rounded text-white">{t}</span>
+    <div className="bg-slate-800 rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-pink-500/20">
+      {/* Project Image */}
+      <div className="relative h-80 overflow-hidden bg-white p-4">
+        <div className="w-full h-full bg-gray-100 rounded-lg transform rotate-3 hover:rotate-0 transition-transform duration-300">
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-full object-cover rounded-lg"
+          />
+        </div>
+      </div>
+
+      {/* Card Content */}
+      <div className="p-6">
+        {/* Technology Badges */}
+        <div className="flex flex-wrap gap-2 mb-4">
+          {technologies.frontend.map((tech, index) => (
+            <span
+              key={`frontend-${index}`}
+              className="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500 text-white"
+            >
+              {tech}
+            </span>
           ))}
         </div>
-        <div className="flex gap-4 mt-2">
-          <a href={project.github} className="text-gray-300 hover:text-cyan-400 flex items-center gap-1">
-            <Github size={16} /> Code
+
+        <div className="flex flex-wrap gap-2 mb-4">
+          {technologies.backend.map((tech, index) => (
+            <span
+              key={`backend-${index}`}
+              className="px-3 py-1 rounded-full text-xs font-semibold bg-green-500 text-white"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        {/* Project Title */}
+        <h3 className="text-2xl font-bold text-white mb-2">{title}</h3>
+
+        {/* Project Description */}
+        <p className="text-gray-400 text-sm mb-1">{description}</p>
+
+        {/* Action Buttons */}
+        <div className="flex gap-3 mt-6 flex-wrap">
+          <a
+            href={links.live}
+            className="flex items-center gap-2 px-4 py-2 bg-transparent border-2 border-gray-600 text-white rounded-full hover:bg-slate-700 transition-colors text-sm font-medium"
+          >
+            <Eye className="w-4 h-4" /> Live
           </a>
-          <a href={project.live} className="text-gray-300 hover:text-cyan-400 flex items-center gap-1">
-            <ExternalLink size={16} /> Live
+          <a
+            href={links.code}
+            className="flex items-center gap-2 px-4 py-2 bg-transparent border-2 border-gray-600 text-white rounded-full hover:bg-slate-700 transition-colors text-sm font-medium"
+          >
+            <Code className="w-4 h-4" /> Code
+          </a>
+          <a
+            href={links.server}
+            className="flex items-center gap-2 px-4 py-2 bg-transparent border-2 border-gray-600 text-white rounded-full hover:bg-slate-700 transition-colors text-sm font-medium"
+          >
+            <Server className="w-4 h-4" /> Server
           </a>
         </div>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 };
 
 const Projects = () => {
-  return (
-    <div className="bg-slate-900 text-white py-20 px-6 lg:px-16">
-      <div className="text-center max-w-3xl mx-auto mb-16">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-          My Projects
-        </h1>
-        <p className="text-gray-400 mt-4 text-lg">
-          Some of my recent works showcasing skills in web development.
-        </p>
-      </div>
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {projects.map((p, i) => (
-          <TiltCard key={i} project={p} />
-        ))}
+  const projects = [
+    {
+      image: 'https://i.ibb.co/fGkbHTKx/download-4.jpg',
+      title: 'Travel Tourism',
+      description: 'Developed REST API backend with Express and MongoDB',
+      technologies: {
+        frontend: ['React', 'React Router', 'Node', 'Express'],
+        backend: ['Firebase', 'MongoDB', 'Bootstrap']
+      },
+      links: { live: '#', code: '#', server: '#' }
+    },
+    {
+      image: 'https://i.ibb.co/TDgxHxbV/download.jpg',
+      title: 'Organic Food',
+      description: 'Developed REST API backend with Express and MongoDB',
+      technologies: {
+        frontend: ['React', 'React Router', 'Node', 'Express'],
+        backend: ['Firebase', 'MongoDB', 'Bootstrap']
+      },
+      links: { live: '#', code: '#', server: '#' }
+    },
+    {
+      image: 'https://i.ibb.co/PvH5QQjm/download-6.jpg',
+      title: 'Jewellery Shop',
+      description: 'Developed REST API backend with Express and MongoDB',
+      technologies: {
+        frontend: ['React', 'React Router', 'Node', 'Express'],
+        backend: ['Firebase', 'MongoDB', 'Bootstrap']
+      },
+      links: { live: '#', code: '#', server: '#' }
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 py-16 px-8">
+      <div className="max-w-7xl mx-auto">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-bold text-white mb-4 flex items-center justify-center gap-4">
+            <span className="w-16 h-0.5 bg-pink-500"></span>
+            My Portfolio
+            <span className="w-16 h-0.5 bg-pink-500"></span>
+          </h2>
+        </div>
+
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          {projects.map((project, index) => (
+            <ProjectCard key={index} {...project} />
+          ))}
+        </div>
+
+        {/* Carousel Dots */}
+        <div className="flex justify-center gap-3">
+          {[0, 1, 2, 3].map((index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-3 h-3 rounded-full transition-all ${
+                currentSlide === index ? 'bg-pink-500 w-8' : 'bg-gray-600'
+              }`}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
