@@ -23,20 +23,18 @@ const Navbar = () => {
   const [dark, setDark] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
 
-  // Theme toggle
   const handleToggle = () => {
     setDark(!dark);
     document.documentElement.classList.toggle("dark");
   };
 
-  // Mobile menu toggle
   const handleMenus = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <div className="poppins">
-      <div className="flex items-center justify-between bg-gray-800 text-white rounded-2xl border border-orange-500 p-3 relative">
+    <div className="poppins relative z-50">
+      <div className="flex items-center justify-between bg-gray-800 text-white rounded-2xl border border-orange-500 p-3">
         {/* Logo */}
         <h1 className="text-2xl roboto font-bold">
           Port<span className="text-yellow-400">folio</span>
@@ -45,17 +43,18 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-8">
           {menuLink.map((menu) => (
-            <div
+            <a
               key={menu.id}
+              href={menu.id}
               className="flex items-center gap-2 cursor-pointer hover:text-blue-400 duration-300"
             >
-              <span>{menu.icon}</span>
-              <h1 className="text-sm">{menu.name}</h1>
-            </div>
+              {menu.icon}
+              <span className="text-sm">{menu.name}</span>
+            </a>
           ))}
         </div>
 
-        {/* Right Side Actions */}
+        {/* Right Side */}
         <div className="flex items-center gap-4">
           {/* Theme Toggle */}
           <button
@@ -65,39 +64,51 @@ const Navbar = () => {
             {dark ? <MdLightMode size={20} /> : <MdDarkMode size={20} />}
           </button>
 
-          {/* Hamburger Menu */}
+          {/* Hamburger Icon */}
           <button onClick={handleMenus} className="lg:hidden text-2xl">
-            {isOpen ? <IoIosClose /> : <RxHamburgerMenu />}
+            {isOpen ? <IoIosClose className="text-3xl" /> : <RxHamburgerMenu />}
           </button>
 
-          {/* Resume Button (Desktop Only) */}
+          {/* Resume (Desktop only) */}
           <button className="hidden lg:flex items-center gap-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white px-4 py-2 rounded-full shadow-md hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 duration-300">
             <FaDownload className="text-white" />
             Resume
           </button>
         </div>
+      </div>
 
-        {/* Mobile Menu */}
-        {isOpen && (
-          <div className="absolute top-full left-0 w-full bg-gray-900 text-white lg:hidden flex flex-col items-center gap-6 py-6 border-t border-gray-700 rounded-b-2xl animate-slide-down">
-            {menuLink.map((menu) => (
-              <a
-                key={menu.id}
-                href={menu.id}
-                onClick={() => setIsOpen(false)}
-                className="flex items-center gap-2 text-lg hover:text-yellow-400 duration-300"
-              >
-                {menu.icon}
-                {menu.name}
-              </a>
-            ))}
+      {/* Mobile Right Side Menu */}
+      <div
+        className={`fixed top-0 right-0 h-screen w-2/3 bg-gray-900 text-white border-l border-gray-700 transform ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        } transition-transform duration-500 ease-in-out lg:hidden flex flex-col items-center py-10 gap-8`}
+      >
+        {/* Close Button */}
+        <button
+          onClick={handleMenus}
+          className="absolute top-4 right-4 text-3xl"
+        >
+          <IoIosClose />
+        </button>
 
-            <button className="flex items-center gap-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white px-4 py-2 rounded-full shadow-md hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 duration-300">
-              <FaDownload className="text-white" />
-              Resume
-            </button>
-          </div>
-        )}
+        {/* Menu Links */}
+        {menuLink.map((menu) => (
+          <a
+            key={menu.id}
+            href={menu.id}
+            onClick={() => setIsOpen(false)}
+            className="flex items-center gap-3 text-lg hover:text-yellow-400 duration-300"
+          >
+            {menu.icon}
+            {menu.name}
+          </a>
+        ))}
+
+        {/* Resume Button */}
+        <button className="flex items-center gap-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white px-4 py-2 rounded-full shadow-md hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 duration-300">
+          <FaDownload className="text-white" />
+          Resume
+        </button>
       </div>
     </div>
   );
