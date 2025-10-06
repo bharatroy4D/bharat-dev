@@ -44,9 +44,8 @@ const Navbar = () => {
                     >
                         {dark ? <MdLightMode size={20} /> : <MdDarkMode size={20} />}
                     </button>
+                    {/*responsive menu  */}
                     <RxHamburgerMenu className='md:hidden text-lg' />
-
-
                     {/* Resume Button */}
                     <button className="hidden lg:flex items-center gap-2 
     bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 
@@ -59,6 +58,16 @@ const Navbar = () => {
 
                 </div>
                 {/* mobile device */}
+                  <div className=' lg:hidden flex flex-col items-center gap-8'>
+                    {
+                        menuLink.map(menu => (
+                            <div key={menu.id} className='flex items-center gap-2 cursor-pointer hover:text-blue-500 duration-300'>
+                                <span className=''>{menu.icon}</span>
+                                <h1 className='text-sm'>{menu.name}</h1>
+                            </div>
+                        ))
+                    }
+                </div>
 
             </div>
         </div>
