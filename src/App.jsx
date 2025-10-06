@@ -32,7 +32,7 @@ const App = () => {
           <Navbar />
           <Banner/>
           <About />
-          {/* <Services /> */}
+          <Services />
           {/* <Projects /> */}
           {/* <Contact /> */}
         </div>

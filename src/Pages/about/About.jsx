@@ -25,7 +25,7 @@ const About = () => {
   ];
 
   return (
-    <div className="bg-slate-800/80 text-white min-h-screen rounded-2xl border border-orange-500 py-20 px-6 lg:px-16 relative overflow-hidden">
+    <div className="bg-slate-800/80 text-white min-h-screen rounded-2xl border border-orange-500 py-10 lg:py-20 px-6 lg:px-16 relative overflow-hidden">
       {/* Background Gradient Effects */}
       <div className="absolute top-20 left-20 w-72 h-72 bg-cyan-600/45 rounded-full blur-3xl opacity-20"></div>
       <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-600/45 rounded-full blur-3xl opacity-20"></div>
@@ -42,12 +42,11 @@ const About = () => {
             <img className="w-14 h-14 rounded-full border border-orange-500 bg-gray-400" src="https://i.ibb.co.com/svcKk0YT/download.png" alt="" />
             About Me
           </h1>
-
-          <p className="text-gray-300 leading-relaxed text-lg">
+          <p className="text-gray-300 leading-relaxed text-base sm:text-lg lg:text-lg">
             I'm <span className="text-yellow-400 font-semibold">Bharat Roy</span>, a passionate{" "}
-            <span className="text-cyan-400  ">MERN Stack Developer</span > dedicated to building modern, responsive, and efficient web applications.
+            <span className="text-cyan-400 font-medium">MERN Stack Developer</span> dedicated to building modern, responsive, and efficient web applications.
             <br />
-            <span className="text-cyan-300 mt-2 block">
+            <span className="text-cyan-300 mt-2 block text-sm sm:text-base">
               <Typewriter
                 words={[
                   "Creating Interactive UIs",
@@ -57,12 +56,13 @@ const About = () => {
                 loop={true}
                 cursor
                 cursorStyle="_"
-                typeSpeed={80}
-                deleteSpeed={50}
-                delaySpeed={1500}
+                typeSpeed={70}   // mobile devices এ একটু slower type করা
+                deleteSpeed={40}
+                delaySpeed={1200}
               />
             </span>
           </p>
+
 
           {/* Skills */}
           <div>
