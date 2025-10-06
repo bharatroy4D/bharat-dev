@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   FaHome,
   FaUser,
@@ -13,11 +14,11 @@ import { RxHamburgerMenu } from "react-icons/rx";
 
 const Navbar = () => {
   const menuLink = [
-    { id: "#home", name: "Home", icon: <FaHome /> },
-    { id: "#about", name: "About", icon: <FaUser /> },
-    { id: "#services", name: "Services", icon: <FaServicestack /> },
-    { id: "#projects", name: "Projects", icon: <FaProjectDiagram /> },
-    { id: "#contact", name: "Contact", icon: <FaEnvelope /> },
+    { path: "/", name: "Home", icon: <FaHome /> },
+    { path: "/about", name: "About", icon: <FaUser /> },
+    { path: "/services", name: "Services", icon: <FaServicestack /> },
+    { path: "/projects", name: "Projects", icon: <FaProjectDiagram /> },
+    { path: "/contact", name: "Contact", icon: <FaEnvelope /> },
   ];
 
   const [dark, setDark] = useState(true);
@@ -34,23 +35,24 @@ const Navbar = () => {
 
   return (
     <div className="poppins relative z-50">
+      {/* Navbar Container */}
       <div className="flex items-center justify-between bg-gray-800 text-white rounded-2xl border border-orange-500 p-3">
         {/* Logo */}
-        <h1 className="text-2xl roboto font-bold">
+        <Link to="/" className="text-2xl roboto font-bold">
           Port<span className="text-yellow-400">folio</span>
-        </h1>
+        </Link>
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-8">
           {menuLink.map((menu) => (
-            <a
-              key={menu.id}
-              href={menu.id}
+            <Link
+              key={menu.path}
+              to={menu.path}
               className="flex items-center gap-2 cursor-pointer hover:text-blue-400 duration-300"
             >
               {menu.icon}
               <span className="text-sm">{menu.name}</span>
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -64,16 +66,20 @@ const Navbar = () => {
             {dark ? <MdLightMode size={20} /> : <MdDarkMode size={20} />}
           </button>
 
-          {/* Hamburger Icon */}
+          {/* Hamburger Icon (Mobile) */}
           <button onClick={handleMenus} className="lg:hidden text-2xl">
             {isOpen ? <IoIosClose className="text-3xl" /> : <RxHamburgerMenu />}
           </button>
 
-          {/* Resume (Desktop only) */}
-          <button className="hidden lg:flex items-center gap-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white px-4 py-2 rounded-full shadow-md hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 duration-300">
+          {/* Resume Button (Desktop only) */}
+          <a
+            href="/resume.pdf"
+            download
+            className="hidden lg:flex items-center gap-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white px-4 py-2 rounded-full shadow-md hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 duration-300"
+          >
             <FaDownload className="text-white" />
             Resume
-          </button>
+          </a>
         </div>
       </div>
 
@@ -83,33 +89,45 @@ const Navbar = () => {
           isOpen ? "translate-x-0" : "translate-x-full"
         } transition-transform duration-500 ease-in-out lg:hidden flex flex-col items-center py-10 gap-8`}
       >
-        {/* Close Button */}
-        <button
-          onClick={handleMenus}
-          className="absolute top-4 right-4 text-3xl"
-        >
-          <IoIosClose />
-        </button>
+        {/* Header & Close Button */}
+        <div className="flex justify-between items-center w-full px-6 border-b border-orange-500 pb-2">
+          <h1 className="text-lg font-bold">Menu</h1>
+          <button onClick={handleMenus} className="text-5xl">
+            <IoIosClose />
+          </button>
+        </div>
 
         {/* Menu Links */}
         {menuLink.map((menu) => (
-          <a
-            key={menu.id}
-            href={menu.id}
+          <Link
+            key={menu.path}
+            to={menu.path}
             onClick={() => setIsOpen(false)}
             className="flex items-center gap-3 text-lg hover:text-yellow-400 duration-300"
           >
             {menu.icon}
             {menu.name}
-          </a>
+          </Link>
         ))}
 
-        {/* Resume Button */}
-        <button className="flex items-center gap-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white px-4 py-2 rounded-full shadow-md hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 duration-300">
+        {/* Resume Button (Mobile) */}
+        <a
+          href="/resume.pdf"
+          download
+          className="flex items-center gap-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white px-4 py-2 rounded-full shadow-md hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 duration-300"
+        >
           <FaDownload className="text-white" />
           Resume
-        </button>
+        </a>
       </div>
+
+      {/* Overlay (for blur background when menu open) */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm lg:hidden"
+          onClick={handleMenus}
+        ></div>
+      )}
     </div>
   );
 };
