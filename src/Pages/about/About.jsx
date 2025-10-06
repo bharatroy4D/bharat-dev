@@ -38,13 +38,14 @@ const About = () => {
           transition={{ duration: 0.8 }}
           className="space-y-6"
         >
-          <h1 className="text-xl lg:text-4xl font-medium bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+          <h1 className="flex gap-3 items-center  text-xl lg:text-3xl font-medium bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            <img className="w-14 h-14 rounded-full border border-orange-500 bg-gray-400" src="https://i.ibb.co.com/svcKk0YT/download.png" alt="" />
             About Me
           </h1>
 
           <p className="text-gray-300 leading-relaxed text-lg">
             I'm <span className="text-yellow-400 font-semibold">Bharat Roy</span>, a passionate{" "}
-            <span className="text-cyan-400 font-semibold">MERN Stack Developer</span> dedicated to building modern, responsive, and efficient web applications.
+            <span className="text-cyan-400  ">MERN Stack Developer</span > dedicated to building modern, responsive, and efficient web applications.
             <br />
             <span className="text-cyan-300 mt-2 block">
               <Typewriter

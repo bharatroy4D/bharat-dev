@@ -24,7 +24,7 @@ const Home = () => {
     };
 
     return (
-        <div className=" bg-slate-800 text-white rounded-2xl relative overflow-hidden border border-orange-500 my-6">
+        <div className=" bg-slate-800/80 text-white rounded-2xl relative overflow-hidden border border-orange-500 my-6">
 
             {/* Background decorative elements */}
             <div className="absolute inset-0 opacity-20">
@@ -32,7 +32,7 @@ const Home = () => {
                 <div className="absolute bottom-20 right-20 w-96 h-96 bg-cyan-700 rounded-full blur-3xl animate-[pulse_6s_ease-in-out_infinite]"></div>
             </div>
 
-            <div className="relative z-10 container mx-auto px-8 py-">
+            <div className="relative z-10 container mx-auto px-8 py-5">
                 <div className="flex justify-around items-center  min-h-screen">
 
                     {/* Right Side - Content with animation */}
@@ -49,7 +49,7 @@ const Home = () => {
                         <motion.h1
                             variants={item}
                             className="text-4xl lg:text-5xl font-bold roboto
-             bg-gradient-to-r from-gray-300 via-gray-400 to-gray-500 
+             bg-gradient-to-r from-gray-300 via-gray-500 to-gray-700 
              bg-clip-text text-transparent"
                         >
                             Mr.Bharat Roy
@@ -128,8 +128,11 @@ const Home = () => {
                             {/* Profile circle with border */}
                             <motion.div
                                 variants={item}
-                                className="relative w-80 h-80 bg-gray-400 rounded-full border-2 border-orange-500 overflow-hidden "
+                                className="relative w-80  h-80 bg-gray-400/70 shadow-[0_0_30px_rgba(6,182,212,0.7)]
+             rounded-full border-2 border-orange-500 overflow-hidden"
                             >
+
+                                {/* Profile Image */}
                                 <motion.img
                                     variants={item}
                                     src="https://i.ibb.co.com/5gQJ3X1L/1759690342585-1.png"
@@ -137,6 +140,7 @@ const Home = () => {
                                     className="w-full h-full object-cover"
                                 />
                             </motion.div>
+
                         </motion.div>
                     </motion.div>
 
