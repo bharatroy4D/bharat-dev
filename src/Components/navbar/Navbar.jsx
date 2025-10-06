@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaHome, FaUser, FaServicestack, FaEnvelope, FaDownload, FaProjectDiagram } from 'react-icons/fa';
 import { MdDarkMode, MdLightMode } from 'react-icons/md';
+import { RxHamburgerMenu } from 'react-icons/rx';
 
 const Navbar = () => {
     const menuLink = [
@@ -23,7 +24,7 @@ const Navbar = () => {
         <div className='poppins'>
             <div className=' flex items-center justify-between bg-gray-800 rounded-2xl border border-orange-500 p-3 '>
                 <h1 className='text-2xl roboto'> Port<span className='text-yellow-400'>folio</span></h1>
-                <div className='flex items-center gap-8'>
+                <div className='hidden lg:flex items-center gap-8'>
                     {
                         menuLink.map(menu => (
                             <div key={menu.id} className='flex items-center gap-2 cursor-pointer hover:text-blue-500 duration-300'>
@@ -43,9 +44,11 @@ const Navbar = () => {
                     >
                         {dark ? <MdLightMode size={20} /> : <MdDarkMode size={20} />}
                     </button>
+                    <RxHamburgerMenu className='md:hidden text-lg' />
+
 
                     {/* Resume Button */}
-                    <button className="flex items-center gap-2 
+                    <button className="hidden lg:flex items-center gap-2 
     bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 
     text-white px-4 py-2 rounded-full shadow-md
     hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 
@@ -55,6 +58,8 @@ const Navbar = () => {
                     </button>
 
                 </div>
+                {/* mobile device */}
+
             </div>
         </div>
     );
