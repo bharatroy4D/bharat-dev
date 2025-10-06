@@ -121,10 +121,10 @@ const Navbar = () => {
         </a>
       </div>
 
-      {/* Overlay (for blur background when menu open) */}
+      {/* Overlay (only dark background, no blur) */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm lg:hidden"
+          className="fixed inset-0 bg-black/50 opacity-100 transition-opacity duration-500 lg:hidden"
           onClick={handleMenus}
         ></div>
       )}
