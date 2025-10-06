@@ -87,12 +87,12 @@ const Navbar = () => {
       <div
         className={`fixed top-0 right-0 h-screen w-2/3 bg-gray-900 text-white border-l border-gray-700 transform ${
           isOpen ? "translate-x-0" : "translate-x-full"
-        } transition-transform duration-500 ease-in-out lg:hidden flex flex-col items-center py-10 gap-8`}
+        } transition-transform duration-500 ease-in-out lg:hidden flex flex-col items-center py-5 gap-8`}
       >
         {/* Header & Close Button */}
         <div className="flex justify-between items-center w-full px-6 border-b border-orange-500 pb-2">
           <h1 className="text-lg font-bold">Menu</h1>
-          <button onClick={handleMenus} className="text-5xl">
+          <button onClick={handleMenus} className="text-4xl">
             <IoIosClose />
           </button>
         </div>
@@ -103,7 +103,7 @@ const Navbar = () => {
             key={menu.path}
             to={menu.path}
             onClick={() => setIsOpen(false)}
-            className="flex items-center gap-3 text-lg hover:text-yellow-400 duration-300"
+            className="flex items-center w-full px-6 gap-3 text-lg hover:text-yellow-400 duration-300"
           >
             {menu.icon}
             {menu.name}
