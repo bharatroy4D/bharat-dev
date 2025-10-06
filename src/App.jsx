@@ -30,11 +30,11 @@ const App = () => {
 
         <div className='container mx-auto  py-6 px-4 lg:px-10 poppins'>
           <Navbar />
-          {/* <Banner/>
-          <About />
-          <Services />
-          <Projects />
-          <Contact /> */}
+          <Banner/>
+          {/* <About /> */}
+          {/* <Services /> */}
+          {/* <Projects /> */}
+          {/* <Contact /> */}
         </div>
         {/* <Footer /> */}
       </div>

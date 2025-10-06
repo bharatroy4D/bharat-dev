@@ -3,151 +3,128 @@ import { Facebook, Twitter, Linkedin, Instagram, Send } from "lucide-react";
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 
-
 const Banner = () => {
+  // Container animation for text & buttons stagger
+  const container = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1, transition: { staggerChildren: 0.3 } }
+  };
 
-    // Container animation for stagger
-    const container = {
-        hidden: { opacity: 0 },
-        show: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.3
-            }
-        },
-    };
+  // Individual item animation
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  };
 
-    // Each item animation
-    const item = {
-        hidden: { opacity: 0, y: 20 },
-        show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-    };
+  return (
+    <div className="bg-slate-800/80 text-white rounded-2xl relative overflow-hidden border border-orange-500 my-6">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-20 left-20 w-64 h-64 bg-blue-600 rounded-full blur-3xl animate-[pulse_5s_ease-in-out_infinite]"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-cyan-700 rounded-full blur-3xl animate-[pulse_6s_ease-in-out_infinite]"></div>
+      </div>
 
-    return (
-        <div className=" bg-slate-800/80 text-white rounded-2xl relative overflow-hidden border border-orange-500 my-6">
+      <div className="relative z-10 container mx-auto px-8 py-5 min-h-screen flex flex-col-reverse lg:flex-row items-center justify-around">
 
-            {/* Background decorative elements */}
-            <div className="absolute inset-0 opacity-20">
-                <div className="absolute top-20 left-20 w-64 h-64 bg-blue-600 rounded-full blur-3xl animate-[pulse_5s_ease-in-out_infinite]"></div>
-                <div className="absolute bottom-20 right-20 w-96 h-96 bg-cyan-700 rounded-full blur-3xl animate-[pulse_6s_ease-in-out_infinite]"></div>
+        {/* Left Side - Text content */}
+        <motion.div
+          className="space-y-6 text-center lg:text-left"
+          variants={container}
+          initial="hidden"
+          animate="show"
+        >
+          <motion.div variants={item} className="text-lg text-gray-300">
+            Hello, I'm
+          </motion.div>
+
+          <motion.h1
+            variants={item}
+            className="text-4xl lg:text-5xl font-bold roboto bg-gradient-to-r from-gray-300 via-gray-500 to-gray-700 bg-clip-text text-transparent"
+          >
+            Mr.Bharat Roy
+          </motion.h1>
+
+          <motion.h2 variants={item} className="text-xl lg:text-2xl">
+            <span className="text-yellow-400">{'{'}</span>
+            <span className="text-cyan-400">
+              <Typewriter
+                words={["Mern stack Developer", "React Enthusiast"]}
+                loop={true}
+                cursor
+                cursorStyle="_"
+                typeSpeed={80}
+                deleteSpeed={50}
+                delaySpeed={1500}
+              />
+            </span>
+            <span className="text-yellow-400">{'}'}</span>
+          </motion.h2>
+
+          <motion.p variants={item} className="text-gray-300 leading-relaxed max-w-2xl">
+            I am a passionate MERN-Stack Developer with expertise in modern web technologies. I specialize in creating exceptional user experiences with clean, efficient code and innovative solutions.
+          </motion.p>
+
+          {/* Social Icons */}
+          <motion.div variants={item} className="flex gap-4 justify-center lg:justify-start">
+            {[Facebook, Twitter, Linkedin, Instagram].map((Icon, i) => (
+              <motion.a
+                key={i}
+                href="#"
+                variants={item}
+                className="w-10 h-10 flex items-center justify-center rounded border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-slate-900 transition-all shadow-[0_0_10px_rgba(253,224,71,0.8)]"
+                whileHover={{ scale: 1.2, rotate: 10 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <Icon className="w-5 h-5" />
+              </motion.a>
+            ))}
+          </motion.div>
+
+          {/* Buttons */}
+          <motion.div variants={item} className="flex gap-4 justify-center lg:justify-start pt-4 flex-wrap">
+            <motion.button
+              className="px-8 py-3 bg-cyan-500 hover:bg-cyan-600 text-white rounded font-medium transition-all shadow-lg shadow-cyan-500/30"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Hire Me
+            </motion.button>
+
+            <motion.button
+              className="px-8 py-3 border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-slate-900 rounded font-medium transition-all flex items-center gap-2"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Contact Me <Send className="w-4 h-4" />
+            </motion.button>
+          </motion.div>
+        </motion.div>
+
+        {/* Right Side - Profile Image */}
+        <motion.div
+          className="flex justify-center lg:justify-start mb-10 lg:mb-0"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <div className="relative w-80 h-80">
+            {/* Soft glowing border effect */}
+            <div className="absolute inset-0 rounded-full blur-xl opacity-30 animate-[pulse_5s_ease-in-out_infinite]"></div>
+
+            {/* Profile circle with border */}
+            <div className="relative w-full h-full bg-gray-400/70 shadow-[0_0_30px_rgba(6,182,212,0.7)] rounded-full border-2 border-orange-500 overflow-hidden">
+              <img
+                src="https://i.ibb.co/5gQJ3X1L/1759690342585-1.png"
+                alt="Profile"
+                className="w-full h-full object-cover"
+              />
             </div>
+          </div>
+        </motion.div>
 
-            <div className="relative z-10 container mx-auto px-8 py-5">
-                <div className="flex justify-around items-center  min-h-screen">
-
-                    {/* Right Side - Content with animation */}
-                    <motion.div
-                        className="space-y-6 text-center lg:text-left"
-                        variants={container}
-                        initial="hidden"
-                        animate="show"
-                    >
-                        <motion.div variants={item} className="text-lg text-gray-300">
-                            Hello, I'm
-                        </motion.div>
-
-                        <motion.h1
-                            variants={item}
-                            className="text-4xl lg:text-5xl font-bold roboto
-             bg-gradient-to-r from-gray-300 via-gray-500 to-gray-700 
-             bg-clip-text text-transparent"
-                        >
-                            Mr.Bharat Roy
-                        </motion.h1>
-                        <motion.h2 variants={item} className="text-xl lg:text-2xl">
-                            <span className="text-yellow-400">{'{'}</span>
-                            <span className="text-cyan-400">
-                                <Typewriter
-                                    words={["Mern stack Developer", "React Enthusiast"]}
-                                    loop={true}
-                                    cursor
-                                    cursorStyle="_"
-                                    typeSpeed={80}
-                                    deleteSpeed={50}
-                                    delaySpeed={1500}
-                                />
-                            </span>
-                            <span className="text-yellow-400">{'}'}</span>
-                        </motion.h2>
-
-
-                        <motion.p variants={item} className="text-gray-300  leading-relaxed max-w-2xl">
-                            I am a passionate MERN-Stack Developer with expertise in modern web technologies. I specialize in creating exceptional user experiences with clean, efficient code and innovative solutions.
-                        </motion.p>
-
-                        <motion.div variants={item} className="flex gap-4 justify-center lg:justify-start">
-                            {[Facebook, Twitter, Linkedin, Instagram].map((Icon, i) => (
-                                <motion.a
-                                    key={i}
-                                    href="#"
-                                    variants={item}
-                                    className="w-10 h-10 flex items-center justify-center rounded border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-slate-900 transition-all shadow-[0_0_10px_rgba(253,224,71,0.8)]"
-                                    whileHover={{ scale: 1.2, rotate: 10 }}
-                                    whileTap={{ scale: 0.9 }}
-                                >
-                                    <Icon className="w-5 h-5" />
-                                </motion.a>
-                            ))}
-                        </motion.div>
-
-                        <motion.div variants={item} className="flex gap-4 justify-center lg:justify-start pt-4">
-                            <motion.button
-                                className="px-8 py-3 bg-cyan-500 hover:bg-cyan-600 text-white rounded font-medium transition-all shadow-lg shadow-cyan-500/30"
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                            >
-                                Hire Me
-                            </motion.button>
-
-                            <motion.button
-                                className="px-8 py-3 border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-slate-900 rounded font-medium transition-all flex items-center gap-2"
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                            >
-                                Contact Me <Send className="w-4 h-4" />
-                            </motion.button>
-                        </motion.div>
-
-                    </motion.div>
-                    {/* Left Side - Profile Image with animation */}
-                    <motion.div
-                        className="flex justify-center lg:justify-start"
-                        variants={container}
-                        initial="hidden"
-                        animate="show"
-                    >
-                        <motion.div variants={item} className="relative">
-
-                            {/* Soft glowing border effect */}
-                            <motion.div
-                                variants={item}
-                                className="absolute inset-0 
-                           rounded-full blur-xl opacity-30 animate-[pulse_5s_ease-in-out_infinite]"
-                            ></motion.div>
-
-                            {/* Profile circle with border */}
-                            <motion.div
-                                variants={item}
-                                className="relative w-80  h-80 bg-gray-400/70 shadow-[0_0_30px_rgba(6,182,212,0.7)]
-             rounded-full border-2 border-orange-500 overflow-hidden"
-                            >
-
-                                {/* Profile Image */}
-                                <motion.img
-                                    variants={item}
-                                    src="https://i.ibb.co.com/5gQJ3X1L/1759690342585-1.png"
-                                    alt="Profile"
-                                    className="w-full h-full object-cover"
-                                />
-                            </motion.div>
-
-                        </motion.div>
-                    </motion.div>
-
-                </div>
-            </div>
-        </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Banner;
