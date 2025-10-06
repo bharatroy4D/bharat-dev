@@ -3,22 +3,28 @@ import { Eye, Code, Server } from 'lucide-react';
 
 const ProjectCard = ({ image, title, description, technologies, links }) => {
   return (
-    <div className="bg-slate-800 rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-pink-500/20">
+    <div
+      className="bg-slate-800/80 rounded-2xl overflow-hidden shadow-xl 
+                 transform transition-all duration-500 hover:scale-110 hover:shadow-orange-400/40"
+    >
       {/* Project Image */}
-      <div className="relative h-80 overflow-hidden bg-white p-4">
-        <div className="w-full h-full bg-gray-100 rounded-lg transform rotate-3 hover:rotate-0 transition-transform duration-300">
+      <div className="relative h-72 overflow-hidden bg-white p-4">
+        <div
+          className="w-full h-full bg-gray-100 rounded-lg transform rotate-3 
+                     hover:rotate-0 transition-transform duration-500"
+        >
           <img
             src={image}
             alt={title}
-            className="w-full h-full object-cover rounded-lg"
+            className="w-full h-full object-cover rounded-lg transition-transform duration-700 ease-out hover:scale-110"
           />
         </div>
       </div>
 
       {/* Card Content */}
-      <div className="p-6">
+      <div className="p-4">
         {/* Technology Badges */}
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="flex gap-2 mb-4">
           {technologies.frontend.map((tech, index) => (
             <span
               key={`frontend-${index}`}
@@ -29,7 +35,7 @@ const ProjectCard = ({ image, title, description, technologies, links }) => {
           ))}
         </div>
 
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="flex gap-2 mb-4">
           {technologies.backend.map((tech, index) => (
             <span
               key={`backend-${index}`}
@@ -41,28 +47,31 @@ const ProjectCard = ({ image, title, description, technologies, links }) => {
         </div>
 
         {/* Project Title */}
-        <h3 className="text-2xl font-bold text-white mb-2">{title}</h3>
+        <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
 
         {/* Project Description */}
         <p className="text-gray-400 text-sm mb-1">{description}</p>
 
         {/* Action Buttons */}
-        <div className="flex gap-3 mt-6 flex-wrap">
+        <div className="flex gap-3 mt-6">
           <a
             href={links.live}
-            className="flex items-center gap-2 px-4 py-2 bg-transparent border-2 border-gray-600 text-white rounded-full hover:bg-slate-700 transition-colors text-sm font-medium"
+            className="flex items-center gap-2 px-4 py-2 bg-transparent border-2 border-gray-600 
+                       text-white rounded-full hover:bg-slate-700 transition-colors text-sm font-medium"
           >
             <Eye className="w-4 h-4" /> Live
           </a>
           <a
             href={links.code}
-            className="flex items-center gap-2 px-4 py-2 bg-transparent border-2 border-gray-600 text-white rounded-full hover:bg-slate-700 transition-colors text-sm font-medium"
+            className="flex items-center gap-2 px-4 py-2 bg-transparent border-2 border-gray-600 
+                       text-white rounded-full hover:bg-slate-700 transition-colors text-sm font-medium"
           >
             <Code className="w-4 h-4" /> Code
           </a>
           <a
             href={links.server}
-            className="flex items-center gap-2 px-4 py-2 bg-transparent border-2 border-gray-600 text-white rounded-full hover:bg-slate-700 transition-colors text-sm font-medium"
+            className="flex items-center gap-2 px-4 py-2 bg-transparent border-2 border-gray-600 
+                       text-white rounded-full hover:bg-slate-700 transition-colors text-sm font-medium"
           >
             <Server className="w-4 h-4" /> Server
           </a>
@@ -78,44 +87,44 @@ const Projects = () => {
   const projects = [
     {
       image: 'https://i.ibb.co/fGkbHTKx/download-4.jpg',
-      title: 'Travel Tourism',
+      title: 'Blogs Website',
       description: 'Developed REST API backend with Express and MongoDB',
       technologies: {
-        frontend: ['React', 'React Router', 'Node', 'Express'],
-        backend: ['Firebase', 'MongoDB', 'Bootstrap']
+        frontend: ['React', 'Node', 'Express'],
+        backend: ['Firebase', 'MongoDB', 'Tailwind'],
       },
-      links: { live: '#', code: '#', server: '#' }
+      links: { live: '#', code: '#', server: '#' },
     },
     {
       image: 'https://i.ibb.co/TDgxHxbV/download.jpg',
-      title: 'Organic Food',
+      title: 'Travel Tourism',
       description: 'Developed REST API backend with Express and MongoDB',
       technologies: {
-        frontend: ['React', 'React Router', 'Node', 'Express'],
-        backend: ['Firebase', 'MongoDB', 'Bootstrap']
+        frontend: ['React', 'Node', 'Express'],
+        backend: ['Firebase', 'MongoDB', 'Tailwind'],
       },
-      links: { live: '#', code: '#', server: '#' }
+      links: { live: '#', code: '#', server: '#' },
     },
     {
       image: 'https://i.ibb.co/PvH5QQjm/download-6.jpg',
-      title: 'Jewellery Shop',
+      title: 'Organic Food',
       description: 'Developed REST API backend with Express and MongoDB',
       technologies: {
-        frontend: ['React', 'React Router', 'Node', 'Express'],
-        backend: ['Firebase', 'MongoDB', 'Bootstrap']
+        frontend: ['React', 'Node', 'Express'],
+        backend: ['Firebase', 'MongoDB', 'Tailwind'],
       },
-      links: { live: '#', code: '#', server: '#' }
-    }
+      links: { live: '#', code: '#', server: '#' },
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 py-16 px-8">
+    <div className="min-h-screen bg-gradient-to-b from-slate-800/80 to-slate-700 rounded-2xl border border-orange-500 py-16 px-8">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-white mb-4 flex items-center justify-center gap-4">
             <span className="w-16 h-0.5 bg-pink-500"></span>
-            My Portfolio
+            My Projects
             <span className="w-16 h-0.5 bg-pink-500"></span>
           </h2>
         </div>
@@ -129,7 +138,7 @@ const Projects = () => {
 
         {/* Carousel Dots */}
         <div className="flex justify-center gap-3">
-          {[0, 1, 2, 3].map((index) => (
+          {[0, 1, 2].map((index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}

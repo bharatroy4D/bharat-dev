@@ -38,7 +38,7 @@ const About = () => {
           transition={{ duration: 0.8 }}
           className="space-y-6"
         >
-          <h1 className="flex gap-3 items-center  text-xl lg:text-3xl font-medium bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+          <h1 className="flex gap-5 items-center  text-xl lg:text-3xl font-medium bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
             <img className="w-14 h-14 rounded-full border border-orange-500 bg-gray-400" src="https://i.ibb.co.com/svcKk0YT/download.png" alt="" />
             About Me
           </h1>

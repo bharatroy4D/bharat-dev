@@ -46,7 +46,7 @@ const cardVariants = {
   hiddenLeft: { opacity: 0, x: -100 },
   hiddenRight: { opacity: 0, x: 100 },
   hiddenDown: { opacity: 0, y: 100 },
-  visible: { opacity: 1, x: 0, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  visible: { opacity: 1, x: 0, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
 const Services = () => {
@@ -55,9 +55,11 @@ const Services = () => {
       
       {/* Hero Section */}
       <div className="text-center max-w-3xl mx-auto mb-12">
-        <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-          My Services
-        </h1>
+        <h2 className="text-3xl font-bold text-white mb-6 flex items-center justify-center gap-4">
+            <span className="w-16 h-0.5 bg-pink-500"></span>
+            My Services
+            <span className="w-16 h-0.5 bg-pink-500"></span>
+          </h2>
         <p className="text-gray-400 mt-4">
           I provide professional web development services to help businesses and individuals
           build modern, responsive, and high-performing digital products.
@@ -83,8 +85,8 @@ const Services = () => {
               whileInView="visible"
               viewport={{ once: false, amount: 0.3 }} // 🔹 Bar-bar animation on scroll
               whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-              className="p-8 bg-slate-800 rounded-2xl border border-cyan-800 
+              transition={{ duration: 0.3}}
+              className="p-8 bg-slate-700 rounded-2xl border border-cyan-800 
                          hover:border-cyan-400 hover:shadow-[0_0_15px_2px_rgba(34,211,238,0.5)] 
                          transition-all"
             >
