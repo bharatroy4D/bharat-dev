@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 
 
-const Home = () => {
+const Banner = () => {
 
     // Container animation for stagger
     const container = {
@@ -150,4 +150,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Banner;

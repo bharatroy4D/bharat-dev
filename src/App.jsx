@@ -1,11 +1,11 @@
 import React from 'react';
 import Navbar from './Components/navbar/Navbar';
-import Home from './Pages/Home/Home';
 import About from './Pages/about/About';
 import Contact from './Pages/contact/Contact';
 import Footer from './Components/footer/Footer';
 import Services from './Pages/services/Services';
 import Projects from './Pages/projects/Projects';
+import Banner from './Pages/banner/Banner';
 
 const App = () => {
   return (
@@ -30,7 +30,7 @@ const App = () => {
 
         <div className='container mx-auto  py-6 px-4 lg:px-10 poppins'>
           <Navbar />
-          <Home />
+          <Banner/>
           <About />
           <Services />
           <Projects />
