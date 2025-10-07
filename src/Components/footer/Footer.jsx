@@ -74,8 +74,8 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="text-center text-gray-500 text-sm">
-          © 2025 Mehedi Hasan. All rights reserved.
+        <div className="text-center text-white text-sm">
+          © 2025 Bharat roy. All rights reserved.
         </div>
       </div>
     </footer>
