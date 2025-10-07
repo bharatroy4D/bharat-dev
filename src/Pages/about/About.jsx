@@ -103,7 +103,7 @@ const About = () => {
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="space-y-8"
+          className="space-y-8 w-fit md:w-full"
         >
           <h2 className="text-2xl font-semibold text-cyan-400 mb-4">Experience</h2>
           <div className="space-y-6">
@@ -112,14 +112,14 @@ const About = () => {
                 key={i}
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
-                className="p-6 bg-slate-800 rounded-xl border border-slate-700 hover:border-cyan-400 hover:bg-slate-700 transition-all shadow-lg"
+                className="p-6  bg-slate-800 rounded-xl border border-slate-700 hover:border-cyan-400 hover:bg-slate-700 transition-all shadow-lg"
               >
                 <div className="flex justify-between items-center">
                   <div>
                     <h3 className=" text-lg">{exp.title}</h3>
                     <p className="text-sm text-gray-400">{exp.company}</p>
                   </div>
-                  <span className="text-yellow-400 font-bold">{exp.year}</span>
+                  <span className="text-yellow-400  font-bold">{exp.year}</span>
                 </div>
               </motion.div>
             ))}
