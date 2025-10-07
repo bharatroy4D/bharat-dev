@@ -3,7 +3,7 @@ import { Github, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-900/60 text-white py-8 px-8">
+    <footer className="bg-slate-900/60 text-white p-8">
       <div className="max-w-7xl mx-auto">
         {/* Logo/Name Section */}
         <div className="flex justify-center items-center gap-2 mb-4">
@@ -13,7 +13,7 @@ const Footer = () => {
         </div>
 
         {/* Social Media Icons */}
-        <div className="flex justify-center items-center gap-4 mb-5">
+        <div className="flex justify-center items-center gap-4 mb-2 md:mb-5">
           {/* GitHub */}
           <a
             href="#"
@@ -52,7 +52,7 @@ const Footer = () => {
         </div>
 
         {/* Navigation Links */}
-        <div className="flex justify-center items-center gap-8 mb-5 flex-wrap">
+        <div className="flex justify-center items-center gap-8  md:mb-5 flex-wrap">
           <a href="#about" className="text-gray-400 hover:text-white transition-colors text-sm">
             About Me
           </a>

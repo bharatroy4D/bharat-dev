@@ -27,7 +27,6 @@ const App = () => {
             <rect width="100%" height="100%" fill="url(#grid)" />
           </svg>
         </div>
-
         <div className='container mx-auto  py-6 px-4 lg:px-10 poppins'>
           <Navbar />
           <Banner/>
@@ -36,7 +35,7 @@ const App = () => {
           <Projects />
           <Contact />
         </div>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </div>
   );
