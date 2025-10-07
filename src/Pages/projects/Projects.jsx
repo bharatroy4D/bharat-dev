@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import { Eye, Code, Server } from 'lucide-react';
 
 const ProjectCard = ({ image, title, description, technologies, links }) => {
@@ -52,30 +53,39 @@ const ProjectCard = ({ image, title, description, technologies, links }) => {
         {/* Project Description */}
         <p className="text-gray-400 text-sm mb-1">{description}</p>
 
-        {/* Action Buttons */}
-        <div className="flex gap-3 mt-6">
-          <a
-            href={links.live}
-            className="flex items-center gap-2 px-4 py-2 bg-transparent border-2 border-gray-600 
-                       text-white rounded-full hover:bg-slate-700 transition-colors text-sm font-medium"
-          >
-            <Eye className="w-4 h-4" /> Live
-          </a>
-          <a
-            href={links.code}
-            className="flex items-center gap-2 px-4 py-2 bg-transparent border-2 border-gray-600 
-                       text-white rounded-full hover:bg-slate-700 transition-colors text-sm font-medium"
-          >
-            <Code className="w-4 h-4" /> Code
-          </a>
-          <a
-            href={links.server}
-            className="flex items-center gap-2 px-4 py-2 bg-transparent border-2 border-gray-600 
-                       text-white rounded-full hover:bg-slate-700 transition-colors text-sm font-medium"
-          >
-            <Server className="w-4 h-4" /> Server
-          </a>
-        </div>
+     
+{/* Action Buttons */}
+<div className="flex justify-center gap-3 mt-6 flex-wrap">
+  <Link
+    to={links.live}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center gap-2 px-4 py-2 bg-transparent border-2 border-gray-600 
+               text-white rounded-full hover:bg-slate-700 transition-colors text-sm font-medium"
+  >
+    <Eye className="w-4 h-4" /> Live
+  </Link>
+
+  <Link
+    to={links.code}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center gap-2 px-4 py-2 bg-transparent border-2 border-gray-600 
+               text-white rounded-full hover:bg-slate-700 transition-colors text-sm font-medium"
+  >
+    <Code className="w-4 h-4" /> Code
+  </Link>
+
+  <Link
+    to={links.server}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hidden lg:flex items-center gap-2 px-4 py-2 bg-transparent border-2 border-gray-600 
+               text-white rounded-full hover:bg-slate-700 transition-colors text-sm font-medium"
+  >
+    <Server className="w-4 h-4" /> Server
+  </Link>
+</div>
       </div>
     </div>
   );
