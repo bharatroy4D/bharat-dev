@@ -131,7 +131,7 @@ const Projects = () => {
     <div className="min-h-screen bg-gradient-to-b from-slate-800/80 to-slate-700 rounded-2xl border border-orange-500 py-16 px-8">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-16">
           <h2 className="text-3xl font-bold text-white mb-4 flex items-center justify-center gap-4">
             <span className="w-16 h-0.5 bg-pink-500"></span>
             My Projects
@@ -140,7 +140,7 @@ const Projects = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8 mb-12">
           {projects.map((project, index) => (
             <ProjectCard key={index} {...project} />
           ))}

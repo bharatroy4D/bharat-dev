@@ -56,9 +56,9 @@ const Services = () => {
       {/* Hero Section */}
       <div className="text-center max-w-3xl mx-auto mb-12">
         <h2 className="text-3xl font-bold text-white mb-6 flex items-center justify-center gap-4">
-            <span className="w-16 h-0.5 hidden md:block bg-pink-500"></span>
+            <span className="w-16 h-0.5 bg-pink-500"></span>
             My Services
-            <span className="w-16 h-0.5 hidden md:block bg-pink-500"></span>
+            <span className="w-16 h-0.5 bg-pink-500"></span>
           </h2>
         <p className="text-gray-400 mt-4">
           I provide professional web development services to help businesses and individuals
