@@ -6,7 +6,7 @@ const ProjectCard = ({ image, title, description, technologies, links }) => {
   return (
     <div
       className="bg-slate-800/80 rounded-2xl overflow-hidden shadow-xl 
-                 transform transition-all duration-500 hover:scale-110 hover:shadow-orange-400/40"
+                 transform transition-all duration-500 hover:scale-110 hover:shadow-slate-400/40"
     >
       {/* Project Image */}
       <div className="relative h-72 overflow-hidden bg-white p-4">
@@ -128,7 +128,7 @@ const Projects = () => {
   ];
 
   return (
-    <div id='projects' className="min-h-screen bg-gradient-to-b from-slate-800 to-slate-700 rounded-2xl border border-orange-500 py-16 px-8">
+    <div id='projects' className="min-h-screen bg-slate-800  rounded-2xl border border-orange-500 shadow-lg hover:shadow-orange-400/30 py-16 px-8">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-10 md:mb-16">

@@ -20,7 +20,7 @@ const App = () => {
                 <path
                   d="M 50 0 L 0 0 0 50"
                   fill="none"
-                  stroke="rgba(96, 165, 250, 0.7)"
+                  stroke="rgba(96, 165, 250, 1)"
                   strokeWidth="1"
                 />
               </pattern>

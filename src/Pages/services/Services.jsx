@@ -51,7 +51,7 @@ const cardVariants = {
 
 const Services = () => {
   return (
-    <div id="services" className="bg-slate-800 rounded-2xl border border-orange-500 text-white py-16 px-6 lg:px-16 my-7">
+    <div id="services" className="bg-slate-800 rounded-2xl border border-orange-500 shadow-lg hover:shadow-orange-400/30 text-white py-16 px-6 lg:px-16 my-7">
       
       {/* Hero Section */}
       <div className="text-center max-w-3xl mx-auto mb-12">

@@ -4,7 +4,7 @@ const Contact = () => {
 
 
     return (
-        <div id='contact' className="min-h-screen bg-gradient-to-br from-slate-800 via-slate-700 to-teal-900 text-white mt-6 rounded-2xl  py-10 px-8">
+        <div id='contact' className="min-h-screen bg-gradient-to-br from-slate-800 via-slate-700 to-teal-900 shadow-lg hover:shadow-orange-400/30 text-white mt-6 rounded-2xl  py-10 px-8">
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="mb-12">
@@ -28,7 +28,7 @@ const Contact = () => {
                                         type="text"
                                         name="name"
                                         placeholder="Your name"
-                                        className="w-full px-5 py-2 border bg-gray-900 border-teal-700 rounded text-gray-300 placeholder-gray-500 focus:outline-none focus:border-teal-500 transition-colors"
+                                        className="w-full px-5 py-2 border bg-slate-800 border-teal-700 rounded text-gray-300 placeholder-gray-500 focus:outline-none focus:border-teal-500 transition-colors"
                                     />
                                 </div>
                                 <div>
@@ -36,7 +36,7 @@ const Contact = () => {
                                         type="tel"
                                         name="phone"
                                         placeholder="Phone"
-                                        className="w-full px-5 py-2 bg-gray-900 border border-teal-700 rounded text-gray-300 placeholder-gray-500 focus:outline-none focus:border-teal-500 transition-colors"
+                                        className="w-full px-5 py-2 bg-slate-800 border border-teal-700 rounded text-gray-300 placeholder-gray-500 focus:outline-none focus:border-teal-500 transition-colors"
                                     />
                                 </div>
                             </div>
@@ -48,7 +48,7 @@ const Contact = () => {
                                         type="email"
                                         name="email"
                                         placeholder="Email"
-                                        className="w-full px-5 py-2 bg-gray-900 border border-teal-700 rounded text-gray-300 placeholder-gray-500 focus:outline-none focus:border-teal-500 transition-colors"
+                                        className="w-full px-5 py-2  bg-slate-800 border border-teal-700 rounded text-gray-300 placeholder-gray-500 focus:outline-none focus:border-teal-500 transition-colors"
                                     />
                                 </div>
                                 <div>
@@ -56,7 +56,7 @@ const Contact = () => {
                                         type="text"
                                         name="subject"
                                         placeholder="Subject"
-                                        className="w-full px-5 py-2 bg-gray-900 border border-teal-700 rounded text-gray-300 placeholder-gray-500 focus:outline-none focus:border-teal-500 transition-colors"
+                                        className="w-full px-5 py-2  bg-slate-800 border border-teal-700 rounded text-gray-300 placeholder-gray-500 focus:outline-none focus:border-teal-500 transition-colors"
                                     />
                                 </div>
                             </div>
@@ -67,7 +67,7 @@ const Contact = () => {
                                     name="message"
                                     placeholder="Message"
                                     rows={6}
-                                    className="w-full px-5 py-2 bg-gray-900 border border-teal-700 rounded text-gray-300 placeholder-gray-500 focus:outline-none focus:border-teal-500 transition-colors resize-none"
+                                    className="w-full px-5 py-2  bg-slate-800 border border-teal-700 rounded text-gray-300 placeholder-gray-500 focus:outline-none focus:border-teal-500 transition-colors resize-none"
                                 ></textarea>
                             </div>
 

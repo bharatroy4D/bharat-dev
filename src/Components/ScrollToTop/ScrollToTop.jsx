@@ -24,13 +24,13 @@ const ScrollToTop = () => {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-2 z-50 p-2.5 rounded text-white text-xl shadow-lg hover:scale-110 transition-transform duration-300 border border-amber-400"
+          className="fixed bottom-6 right-2 z-50 p-2.5 rounded-lg text-white text-xl shadow-lg hover:scale-110 transition-transform duration-300 border border-amber-400"
         >
           <motion.div
             animate={{ y: [0, -5, 0] }} // up-down animation
             transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
           >
-            <MdOutlineKeyboardDoubleArrowUp />
+            <MdOutlineKeyboardDoubleArrowUp className="text-2xl" />
           </motion.div>
         </button>
       )}

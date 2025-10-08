@@ -46,7 +46,7 @@ const Navbar = () => {
   return (
     <div className="poppins relative z-50">
       {/* Navbar Container */}
-      <div className="flex items-center justify-between bg-gray-800 text-white rounded-2xl border border-orange-500 p-3">
+      <div className="flex items-center justify-between bg-gray-800 text-white rounded-2xl border border-orange-500 p-3 shadow-lg hover:shadow-orange-400/30">
         {/* Logo */}
         <a href="#banner" className="text-2xl roboto font-bold">
           Port<span className="text-yellow-400">folio</span>
