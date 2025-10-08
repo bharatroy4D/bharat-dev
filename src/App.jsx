@@ -6,6 +6,7 @@ import Footer from './Components/footer/Footer';
 import Services from './Pages/services/Services';
 import Projects from './Pages/projects/Projects';
 import Banner from './Pages/banner/Banner';
+import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
 
 const App = () => {
   return (
@@ -27,15 +28,16 @@ const App = () => {
             <rect width="100%" height="100%" fill="url(#grid)" />
           </svg>
         </div>
-        <div className='container mx-auto  py-6 px-4 lg:px-10 poppins'>
+        <div className='container mx-auto  py-6 px-4 lg:px-15 poppins'>
           <Navbar />
-          <Banner/>
+          <Banner />
           <About />
           <Services />
           <Projects />
           <Contact />
         </div>
         <Footer />
+        <ScrollToTop />
       </div>
     </div>
   );
