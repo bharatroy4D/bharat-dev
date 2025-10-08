@@ -53,39 +53,44 @@ const ProjectCard = ({ image, title, description, technologies, links }) => {
         {/* Project Description */}
         <p className="text-gray-400 text-sm mb-1">{description}</p>
 
-     
-{/* Action Buttons */}
-<div className="flex justify-center gap-3 mt-6 flex-wrap">
-  <Link
-    to={links.live}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex items-center gap-2 px-4 py-2 bg-transparent border-2 border-gray-600 
-               text-white rounded-full hover:bg-slate-700 transition-colors text-sm font-medium"
-  >
-    <Eye className="w-4 h-4" /> Live
-  </Link>
+        {/* Action Buttons */}
+        <div className="flex justify-center gap-3 mt-6">
+          {links.live && (
+            <Link
+              to={links.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 bg-transparent border-2 border-gray-600 
+                         text-white rounded-full hover:bg-slate-700 transition-colors text-sm font-medium"
+            >
+              <Eye className="w-4 h-4" /> Live
+            </Link>
+          )}
 
-  <Link
-    to={links.code}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex items-center gap-2 px-4 py-2 bg-transparent border-2 border-gray-600 
-               text-white rounded-full hover:bg-slate-700 transition-colors text-sm font-medium"
-  >
-    <Code className="w-4 h-4" /> Code
-  </Link>
+          {links.code && (
+            <Link
+              to={links.code}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 bg-transparent border-2 border-gray-600 
+                         text-white rounded-full hover:bg-slate-700 transition-colors text-sm font-medium"
+            >
+              <Code className="w-4 h-4" /> Code
+            </Link>
+          )}
 
-  <Link
-    to={links.server}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="hidden lg:flex items-center gap-2 px-4 py-2 bg-transparent border-2 border-gray-600 
-               text-white rounded-full hover:bg-slate-700 transition-colors text-sm font-medium"
-  >
-    <Server className="w-4 h-4" /> Server
-  </Link>
-</div>
+          {links.server && (
+            <Link
+              to={links.server}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden lg:flex items-center gap-2 px-4 py-2 bg-transparent border-2 border-gray-600 
+                         text-white rounded-full hover:bg-slate-700 transition-colors text-sm font-medium"
+            >
+              <Server className="w-4 h-4" /> Server
+            </Link>
+          )}
+        </div>
       </div>
     </div>
   );
@@ -98,37 +103,49 @@ const Projects = () => {
     {
       image: 'https://i.ibb.co/fGkbHTKx/download-4.jpg',
       title: 'Blogs Website',
-      description: 'Developed REST API backend with Express and MongoDB',
+      description: 'Developed a modern blog platform with CRUD and authentication features.',
       technologies: {
-        frontend: ['React', 'Node', 'Express'],
-        backend: ['Firebase', 'MongoDB', 'Tailwind'],
+        frontend: ['React', 'Redux', 'Tailwind'],
+        backend: ['Node', 'Express', 'MongoDB'],
       },
-      links: { live: '#', code: '#', server: '#' },
+      links: {
+        live: 'https://infodrift-blogs.netlify.app/',
+        code: 'https://github.com/bharatroy4D/blogs-website',
+        server: 'https://github.com/yourusername/blogs-backend',
+      },
     },
     {
       image: 'https://i.ibb.co/TDgxHxbV/download.jpg',
       title: 'Travel Tourism',
-      description: 'Developed REST API backend with Express and MongoDB',
+      description: 'Built a dynamic travel booking app with secure user dashboard.',
       technologies: {
-        frontend: ['React', 'Node', 'Express'],
-        backend: ['Firebase', 'MongoDB', 'Tailwind'],
+        frontend: ['React', 'Context API', 'Tailwind'],
+        backend: ['Node', 'Express', 'MongoDB'],
       },
-      links: { live: '#', code: '#', server: '#' },
+      links: {
+        live: 'https://travel-flyexplore.netlify.app/',
+        code: 'https://github.com/bharatroy4D/world-tour',
+        server: 'https://github.com/bharatroy4D/travel-backend',
+      },
     },
     {
       image: 'https://i.ibb.co/PvH5QQjm/download-6.jpg',
       title: 'Organic Food',
-      description: 'Developed REST API backend with Express and MongoDB',
+      description: 'E-commerce project with shopping cart, filter, and checkout system.',
       technologies: {
-        frontend: ['React', 'Node', 'Express'],
-        backend: ['Firebase', 'MongoDB', 'Tailwind'],
+        frontend: ['React', 'Redux Toolkit', 'Tailwind'],
+        backend: ['Node', 'Express', 'MongoDB'],
       },
-      links: { live: '#', code: '#', server: '#' },
+      links: {
+        live: 'https://bacola-grosary.netlify.app/',
+        code: 'https://github.com/bharatroy4D/food-project',
+        server: 'https://github.com/bharatroy4D/organic-backend',
+      },
     },
   ];
 
   return (
-    <div id='projects' className="min-h-screen bg-slate-800  rounded-2xl border border-orange-500 shadow-lg hover:shadow-orange-400/30 py-16 px-8">
+    <div id="projects" className="min-h-screen bg-slate-800 rounded-2xl border border-orange-500 shadow-lg hover:shadow-orange-400/30 py-16 px-8">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-10 md:mb-16">
