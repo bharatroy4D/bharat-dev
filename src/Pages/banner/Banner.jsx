@@ -127,7 +127,7 @@ const Banner = () => {
         <div className="flex justify-center lg:justify-start mb-10 lg:mb-0">
           <div className="relative w-80 h-80">
             {/* Glowing Border */}
-            <div className="absolute inset-0 rounded-full blur-xl opacity-30 animate-[pulse_5s_ease-in-out_infinite]"></div>
+            <div className="absolute inset-0 rounded-full blur-xl opacity-30 animate-[pulse_1s_ease-in-out_infinite]"></div>
 
             {/* Profile Circle */}
             <div className="relative w-full h-full bg-gray-400/70 shadow-[0_0_30px_rgba(6,182,212,0.7)] rounded-full border-2 border-orange-500 overflow-hidden">
