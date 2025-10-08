@@ -23,18 +23,18 @@ const Navbar = () => {
   const [dark, setDark] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
 
-  // 🌙 Toggle Dark/Light Mode
+  // 🌙 Dark/Light Mode Toggle
   const handleToggle = () => {
     setDark(!dark);
     document.documentElement.classList.toggle("dark");
   };
 
-  // 🍔 Toggle Mobile Menu
+  // 🍔 Mobile Menu Toggle
   const handleMenus = () => {
     setIsOpen(!isOpen);
   };
 
-  // 🧭 Smooth Scroll Function
+  // 🧭 Smooth Scroll
   const handleScroll = (id) => {
     const section = document.querySelector(id);
     if (section) {
@@ -44,11 +44,14 @@ const Navbar = () => {
   };
 
   return (
-    <div className="poppins relative z-50">
+    <div className="fixed top-0 left-0 w-full z-50 my-6 container mx-auto px-10 ">
       {/* Navbar Container */}
-      <div className="flex items-center justify-between bg-gray-800 text-white rounded-2xl border border-orange-500 p-3">
+      <div className=" py-3 px-5  flex items-center justify-between text-white rounded-2xl bg-gray-800/90 border border-orange-500">
         {/* Logo */}
-        <a href="#banner" className="text-2xl roboto font-bold">
+        <a
+          href="#banner"
+          className="text-2xl roboto font-bold hover:text-yellow-400 duration-300"
+        >
           Port<span className="text-yellow-400">folio</span>
         </a>
 
@@ -85,7 +88,7 @@ const Navbar = () => {
             )}
           </button>
 
-          {/* Resume Button (Desktop only) */}
+          {/* Resume Button (Desktop) */}
           <a
             href="/resume.pdf"
             download
@@ -97,13 +100,13 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Right Side Menu */}
+      {/* Mobile Menu */}
       <div
         className={`fixed top-0 right-0 h-screen w-2/3 bg-gray-900 text-white border-l border-gray-700 transform ${
           isOpen ? "translate-x-0" : "translate-x-full"
         } transition-transform duration-500 ease-in-out lg:hidden flex flex-col items-center py-5 gap-8`}
       >
-        {/* Header & Close Button */}
+        {/* Header */}
         <div className="flex justify-between items-center w-full px-6 border-b border-orange-500 pb-2">
           <h1 className="text-lg font-bold">Menu</h1>
           <button onClick={handleMenus} className="text-4xl">
@@ -134,7 +137,7 @@ const Navbar = () => {
         </a>
       </div>
 
-      {/* Overlay (dark background only) */}
+      {/* Overlay */}
       {isOpen && (
         <div
           className="fixed inset-0 bg-black/50 opacity-100 transition-opacity duration-500 lg:hidden"
