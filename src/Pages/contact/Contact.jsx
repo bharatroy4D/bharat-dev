@@ -113,7 +113,7 @@ const Contact = () => {
                                 <div className="flex-1">
                                     <h3 className="text-gray-400 text-sm mb-1">Email</h3>
                                     <div className="flex items-center gap-2">
-                                        <p className="text-lime-400 ">bharatroy1005@gmail.com</p>
+                                        <p className="text-lime-400 ">bharatroy1005@<span className='hidden md:block'>gmail.com</span></p>
                                         <button
                                             className="p-1 hover:bg-slate-700 rounded transition-colors"
                                         >

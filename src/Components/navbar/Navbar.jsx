@@ -39,8 +39,9 @@ const Navbar = () => {
     const section = document.querySelector(id);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
-      setIsOpen(false);
     }
+    // scroll complete hobar pore menu bondho korbo
+    setTimeout(() => setIsOpen(false), 400);
   };
 
   return (
@@ -87,8 +88,9 @@ const Navbar = () => {
 
           {/* Resume Button (Desktop only) */}
           <a
-            href="https://drive.google.com/file/d/1ewYkksnTMzcMpkdw4xSP7HDTba8g3yth"
-            download
+            href="https://drive.google.com/file/d/1ewYkksnTMzcMpkdw4xSP7HDTba8g3yth/view"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden lg:flex items-center gap-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white px-4 py-2 rounded-full shadow-md hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 duration-300"
           >
             <FaDownload className="text-white" />
@@ -125,8 +127,9 @@ const Navbar = () => {
 
         {/* Mobile Resume Button */}
         <a
-          href="/resume.pdf"
-          download
+          href="https://drive.google.com/file/d/1ewYkksnTMzcMpkdw4xSP7HDTba8g3yth/view"
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex items-center gap-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white px-4 py-2 rounded-full shadow-md hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 duration-300"
         >
           <FaDownload className="text-white" />
@@ -134,7 +137,7 @@ const Navbar = () => {
         </a>
       </div>
 
-      {/* Overlay (dark background only) */}
+      {/* Overlay */}
       {isOpen && (
         <div
           className="fixed inset-0 bg-black/50 opacity-100 transition-opacity duration-500 lg:hidden"
