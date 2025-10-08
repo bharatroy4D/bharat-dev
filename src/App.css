@@ -1,0 +1,20 @@
+.grid-wrapper {
+  display: flex;
+  width: 200%; /* double width for seamless loop */
+  height: 100%;
+  animation: scrollGrid 30s linear infinite;
+}
+
+.grid-svg {
+  width: 50%; /* half width */
+  height: 100%;
+}
+
+@keyframes scrollGrid {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
