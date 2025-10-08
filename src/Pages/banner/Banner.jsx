@@ -1,5 +1,5 @@
 import React from "react";
-import { Facebook, Twitter, Linkedin, Instagram, Send } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Github, Send } from "lucide-react";
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 
@@ -15,6 +15,14 @@ const Banner = () => {
         hidden: { opacity: 0, y: 20 },
         show: { opacity: 1, y: 0, transition: { duration: 0.6 } }
     };
+
+    // Social links array
+    const socialLinks = [
+        { icon: Facebook, link: "https://www.facebook.com/bharatroyfb" },
+        { icon: Twitter, link: "#" },
+        { icon: Linkedin, link: "https://www.linkedin.com/in/bharatroy/" },
+        { icon: Github, link: "https://github.com/bharatroy4D" },
+    ];
 
     return (
         <div id="banner" className="bg-slate-800 text-white rounded-2xl relative overflow-hidden border border-orange-500 my-6 shadow-lg hover:shadow-orange-400/30">
@@ -61,18 +69,23 @@ const Banner = () => {
 
                     {/* Social Icons */}
                     <motion.div variants={item} className="flex gap-4 justify-center lg:justify-start">
-                        {[Facebook, Twitter, Linkedin, Instagram].map((Icon, i) => (
-                            <motion.a
-                                key={i}
-                                href="#"
-                                variants={item}
-                                className="w-10 h-10 flex items-center justify-center rounded border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-slate-900 transition-all shadow-[0_0_10px_rgba(253,224,71,0.8)]"
-                                whileHover={{ scale: 1.2, rotate: 10 }}
-                                whileTap={{ scale: 0.9 }}
-                            >
-                                <Icon className="w-5 h-5" />
-                            </motion.a>
-                        ))}
+                        {socialLinks.map((social, i) => {
+                            const Icon = social.icon;
+                            return (
+                                <motion.a
+                                    key={i}
+                                    href={social.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    variants={item}
+                                    className="w-10 h-10 flex items-center justify-center rounded border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-slate-900 transition-all shadow-[0_0_10px_rgba(253,224,71,0.8)]"
+                                    whileHover={{ scale: 1.2, rotate: 10 }}
+                                    whileTap={{ scale: 0.9 }}
+                                >
+                                    <Icon className="w-5 h-5" />
+                                </motion.a>
+                            );
+                        })}
                     </motion.div>
 
                     {/* Buttons */}
