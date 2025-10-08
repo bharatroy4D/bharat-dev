@@ -87,7 +87,7 @@ const Navbar = () => {
 
           {/* Resume Button (Desktop only) */}
           <a
-            href="/resume.pdf"
+            href="https://drive.google.com/file/d/1ewYkksnTMzcMpkdw4xSP7HDTba8g3yth"
             download
             className="hidden lg:flex items-center gap-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white px-4 py-2 rounded-full shadow-md hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 duration-300"
           >

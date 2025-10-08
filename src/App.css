@@ -10,11 +10,13 @@
   height: 100%;
 }
 
+
 @keyframes scrollGrid {
   0% {
-    transform: translateX(0);
+    transform: translateX(-50%); /* start from left shifted */
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(0); /* move to original position */
   }
 }
+
