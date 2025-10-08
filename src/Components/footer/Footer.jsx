@@ -3,7 +3,7 @@ import { Github, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-900/60 text-white p-8">
+    <footer className="bg-slate-800 text-white p-8">
       <div className="max-w-7xl mx-auto">
         {/* Logo/Name Section */}
         <div className="flex justify-center items-center gap-2 mb-4">
@@ -74,7 +74,7 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="text-center text-white text-sm">
+        <div className="text-center text-gray-400 text-sm">
           © 2025 Bharat roy. All rights reserved.
         </div>
       </div>

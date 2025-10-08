@@ -17,7 +17,7 @@ const Banner = () => {
     };
 
     return (
-        <div className="bg-slate-800 text-white rounded-2xl relative overflow-hidden border border-orange-500 my-6">
+        <div id="banner" className="bg-slate-800 text-white rounded-2xl relative overflow-hidden border border-orange-500 my-6">
             {/* Background decorative elements */}
             <div className="absolute inset-0 opacity-20">
                 <div className="absolute top-20 left-20 w-64 h-64 bg-blue-600 rounded-full blur-3xl animate-[pulse_5s_ease-in-out_infinite]"></div>
