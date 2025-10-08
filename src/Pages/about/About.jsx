@@ -25,7 +25,10 @@ const About = () => {
   ];
 
   return (
-    <div id="about" className="bg-slate-800 text-white min-h-screen rounded-2xl border border-orange-500 shadow-lg hover:shadow-orange-400/30 py-10 lg:py-20 px-6 lg:px-16 relative overflow-hidden">
+    <div
+      id="about"
+      className="bg-slate-800 text-white min-h-screen rounded-2xl border border-orange-500 shadow-lg hover:shadow-orange-400/30 py-10 lg:py-20 px-6 lg:px-16 relative overflow-hidden"
+    >
       {/* Background Gradient Effects */}
       <div className="absolute top-20 left-20 w-72 h-72 bg-cyan-600/45 rounded-full blur-3xl opacity-20"></div>
       <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-600/45 rounded-full blur-3xl opacity-20"></div>
@@ -33,13 +36,17 @@ const About = () => {
       <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
         {/* Left Side - Text */}
         <motion.div
-          initial={{ opacity: 0, x: -40 }}
+          initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
           className="space-y-6"
         >
-          <h1 className="flex gap-5 items-center  text-xl lg:text-3xl font-medium bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-            <img className="w-14 h-14 rounded-full border border-orange-500 bg-gray-400" src="https://i.ibb.co.com/svcKk0YT/download.png" alt="" />
+          <h1 className="flex gap-5 items-center text-xl lg:text-3xl font-medium bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            <img
+              className="w-14 h-14 rounded-full border border-orange-500 bg-gray-400"
+              src="https://i.ibb.co.com/svcKk0YT/download.png"
+              alt=""
+            />
             About Me
           </h1>
           <p className="text-gray-300 leading-relaxed text-base sm:text-lg lg:text-lg">
@@ -56,13 +63,12 @@ const About = () => {
                 loop={true}
                 cursor
                 cursorStyle="_"
-                typeSpeed={70}   // mobile devices এ একটু slower type করা
+                typeSpeed={70}
                 deleteSpeed={40}
                 delaySpeed={1200}
               />
             </span>
           </p>
-
 
           {/* Skills */}
           <div>
@@ -88,7 +94,7 @@ const About = () => {
                 {skills.map((icon, i) => (
                   <span
                     key={i}
-                    className="flex items-center justify-center w-12 h-12 bg-slate-800 rounded  border border-purple-400 shadow-md hover:bg-purple-400 hover:text-slate-900 transition-all"
+                    className="flex items-center justify-center w-12 h-12 bg-slate-800 rounded border border-purple-400 shadow-md hover:bg-purple-400 hover:text-slate-900 transition-all"
                   >
                     {icon}
                   </span>
@@ -100,9 +106,9 @@ const About = () => {
 
         {/* Right Side - Experience */}
         <motion.div
-          initial={{ opacity: 0, x: 40 }}
+          initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
           className="space-y-8 w-fit md:w-full"
         >
           <h2 className="text-2xl font-semibold text-cyan-400 mb-4">Experience</h2>
@@ -110,16 +116,16 @@ const About = () => {
             {experiences.map((exp, i) => (
               <motion.div
                 key={i}
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-                className="p-6  bg-slate-800 rounded-xl border border-slate-700 hover:border-cyan-400 hover:bg-slate-700 transition-all shadow-lg"
+                whileHover={{ scale: 1.03 }}
+                transition={{ duration: 0.2 }}
+                className="p-6 bg-slate-800 rounded-xl border border-slate-700 hover:border-cyan-400 hover:bg-slate-700 transition-all shadow-lg"
               >
                 <div className="flex justify-between items-center">
                   <div>
-                    <h3 className=" text-lg">{exp.title}</h3>
+                    <h3 className="text-lg">{exp.title}</h3>
                     <p className="text-sm text-gray-400">{exp.company}</p>
                   </div>
-                  <span className="text-yellow-400  font-bold">{exp.year}</span>
+                  <span className="text-yellow-400 font-bold">{exp.year}</span>
                 </div>
               </motion.div>
             ))}

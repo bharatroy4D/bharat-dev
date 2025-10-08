@@ -4,16 +4,10 @@ import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 
 const Banner = () => {
-  // Container animation for text & buttons stagger
-  const container = {
-    hidden: { opacity: 0 },
-    show: { opacity: 1, transition: { staggerChildren: 0.3 } },
-  };
-
-  // Individual item animation
+  // Faster animation setup (no long delay)
   const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+    hidden: { opacity: 0, y: 15 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
   };
 
   // Social links
@@ -30,38 +24,41 @@ const Banner = () => {
       className="bg-slate-800 text-white rounded-2xl relative overflow-hidden border border-orange-500 my-6 shadow-lg hover:shadow-orange-400/30"
     >
       {/* Background Glow */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-20 w-64 h-64 bg-blue-600 rounded-full blur-3xl animate-[pulse_5s_ease-in-out_infinite]"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-cyan-700 rounded-full blur-3xl animate-[pulse_6s_ease-in-out_infinite]"></div>
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-20 left-20 w-64 h-64 bg-blue-600 rounded-full blur-3xl animate-[pulse_5s_ease-in-out_infinite]" />
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-cyan-700 rounded-full blur-3xl animate-[pulse_6s_ease-in-out_infinite]" />
       </div>
 
       <div className="relative z-10 container mx-auto px-8 py-5 min-h-screen flex flex-col-reverse lg:flex-row items-center justify-around">
         {/* Left Side - Text */}
         <motion.div
           className="space-y-6 text-center lg:text-left"
-          variants={container}
           initial="hidden"
-          animate="show"
+          whileInView="show"
+          viewport={{ once: true }}
         >
           <motion.div variants={item} className="text-lg text-gray-300">
             Hello, I'm
           </motion.div>
 
-          <h1 className="text-4xl lg:text-5xl font-bold roboto">
+          <motion.h1
+            variants={item}
+            className="text-4xl lg:text-5xl font-bold roboto"
+          >
             Mr. Bharat Roy
-          </h1>
+          </motion.h1>
 
           <motion.h2 variants={item} className="text-xl lg:text-2xl">
             <span className="text-yellow-400">{'{'}</span>
             <span className="text-cyan-400">
               <Typewriter
                 words={["MERN Stack Developer", "React Enthusiast"]}
-                loop={true}
+                loop
                 cursor
                 cursorStyle="_"
-                typeSpeed={80}
-                deleteSpeed={50}
-                delaySpeed={1500}
+                typeSpeed={60}
+                deleteSpeed={30}
+                delaySpeed={1000}
               />
             </span>
             <span className="text-yellow-400">{'}'}</span>
@@ -91,7 +88,7 @@ const Banner = () => {
                   rel="noopener noreferrer"
                   variants={item}
                   className="w-10 h-10 flex items-center justify-center rounded border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-slate-900 transition-all shadow-[0_0_10px_rgba(253,224,71,0.8)]"
-                  whileHover={{ scale: 1.2, rotate: 10 }}
+                  whileHover={{ scale: 1.15, rotate: 5 }}
                   whileTap={{ scale: 0.9 }}
                 >
                   <Icon className="w-5 h-5" />
@@ -123,23 +120,30 @@ const Banner = () => {
           </motion.div>
         </motion.div>
 
-        {/* Right Side - Profile Image (Instant Show) */}
-        <div className="flex justify-center lg:justify-start mb-10 lg:mb-0">
+        {/* Right Side - Profile Image */}
+        <motion.div
+          className="flex justify-center lg:justify-start mb-10 lg:mb-0"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <div className="relative w-80 h-80">
             {/* Glowing Border */}
-            <div className="absolute inset-0 rounded-full blur-xl opacity-30 animate-[pulse_1s_ease-in-out_infinite]"></div>
+            <div className="absolute inset-0 rounded-full blur-xl opacity-30"></div>
 
             {/* Profile Circle */}
             <div className="relative w-full h-full bg-gray-400/70 shadow-[0_0_30px_rgba(6,182,212,0.7)] rounded-full border-2 border-orange-500 overflow-hidden">
               <img
                 src="https://i.ibb.co/5gQJ3X1L/1759690342585-1.png"
                 alt="Profile"
-                loading="eager"
-                className="w-full h-full object-cover"
+                loading="lazy"
+                className="w-full h-full object-cover transition-opacity duration-700 opacity-0"
+                onLoad={(e) => (e.target.style.opacity = 1)}
               />
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

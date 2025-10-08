@@ -1,6 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Code, Monitor, Smartphone, Palette, Database, Shield } from "lucide-react";
+import {
+  Code,
+  Monitor,
+  Smartphone,
+  Palette,
+  Database,
+  Shield,
+} from "lucide-react";
 
 const services = [
   {
@@ -41,35 +48,42 @@ const services = [
   },
 ];
 
-// Animation Variants
+// 🔹 Fast Animation Variants
 const cardVariants = {
-  hiddenLeft: { opacity: 0, x: -100 },
-  hiddenRight: { opacity: 0, x: 100 },
-  hiddenDown: { opacity: 0, y: 100 },
-  visible: { opacity: 1, x: 0, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  hiddenLeft: { opacity: 0, x: -50 },
+  hiddenRight: { opacity: 0, x: 50 },
+  hiddenDown: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    y: 0,
+    transition: { duration: 0.3, ease: "easeOut" },
+  },
 };
 
 const Services = () => {
   return (
-    <div id="services" className="bg-slate-800 rounded-2xl border border-orange-500 shadow-lg hover:shadow-orange-400/30 text-white py-16 px-6 lg:px-16 my-7">
-      
+    <div
+      id="services"
+      className="bg-slate-800 rounded-2xl border border-orange-500 shadow-lg hover:shadow-orange-400/30 text-white py-16 px-6 lg:px-16 my-7"
+    >
       {/* Hero Section */}
       <div className="text-center max-w-3xl mx-auto mb-12">
         <h2 className="text-3xl font-bold text-white mb-6 flex items-center justify-center gap-4">
-            <span className="w-16 h-0.5 bg-pink-500"></span>
-            My Services
-            <span className="w-16 h-0.5 bg-pink-500"></span>
-          </h2>
+          <span className="w-16 h-0.5 bg-pink-500"></span>
+          My Services
+          <span className="w-16 h-0.5 bg-pink-500"></span>
+        </h2>
         <p className="text-gray-400 mt-4">
-          I provide professional web development services to help businesses and individuals
-          build modern, responsive, and high-performing digital products.
+          I provide professional web development services to help businesses and
+          individuals build modern, responsive, and high-performing digital
+          products.
         </p>
       </div>
 
       {/* Services Grid */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {services.map((service, i) => {
-          // Animation direction logic
           const direction =
             i % 3 === 0
               ? "hiddenLeft"
@@ -83,16 +97,19 @@ const Services = () => {
               variants={cardVariants}
               initial={direction}
               whileInView="visible"
-              viewport={{ once: false, amount: 0.3 }} // 🔹 Bar-bar animation on scroll
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3}}
+              viewport={{ once: false, amount: 0.2 }}
+              whileHover={{ scale: 1.04 }}
               className="p-8 bg-slate-700 rounded-2xl border border-cyan-800 
                          hover:border-cyan-400 hover:shadow-[0_0_15px_2px_rgba(34,211,238,0.5)] 
-                         transition-all"
+                         transition-all duration-200"
             >
               <div className="mb-4">{service.icon}</div>
-              <h3 className="text-lg font-semibold text-cyan-400">{service.title}</h3>
-              <p className="text-sm text-gray-400 mt-2">{service.description}</p>
+              <h3 className="text-lg font-semibold text-cyan-400">
+                {service.title}
+              </h3>
+              <p className="text-sm text-gray-400 mt-2">
+                {service.description}
+              </p>
             </motion.div>
           );
         })}
@@ -100,7 +117,9 @@ const Services = () => {
 
       {/* CTA Section */}
       <div className="text-center mt-14">
-        <h2 className="text-lg font-semibold text-cyan-400">Ready to work together?</h2>
+        <h2 className="text-lg font-semibold text-cyan-400">
+          Ready to work together?
+        </h2>
         <p className="text-sm text-gray-400 mt-2">
           Let’s build something amazing! Contact me for your next project.
         </p>
