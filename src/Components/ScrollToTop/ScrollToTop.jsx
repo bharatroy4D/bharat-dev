@@ -1,43 +1,40 @@
 import React, { useEffect, useState } from "react";
-import { FaArrowUp } from "react-icons/fa";
+import { MdOutlineKeyboardDoubleArrowUp } from "react-icons/md";
+import { motion, AnimatePresence } from "framer-motion";
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  // scroll detect
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.scrollY > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      if (window.scrollY > 300) setIsVisible(true);
+      else setIsVisible(false);
     };
 
     window.addEventListener("scroll", toggleVisibility);
-
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
-  // smooth scroll to top
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
-    <>
+    <AnimatePresence>
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-2 z-50 p-3 rounded  text-white text-xl shadow-lg hover:scale-110 transition-transform duration-300 border border-amber-400"
+          className="fixed bottom-6 right-2 z-50 p-2.5 rounded text-white text-xl shadow-lg hover:scale-110 transition-transform duration-300 border border-amber-400"
         >
-          <FaArrowUp />
+          <motion.div
+            animate={{ y: [0, -5, 0] }} // up-down animation
+            transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <MdOutlineKeyboardDoubleArrowUp />
+          </motion.div>
         </button>
       )}
-    </>
+    </AnimatePresence>
   );
 };
 
