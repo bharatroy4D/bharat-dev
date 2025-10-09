@@ -25,8 +25,8 @@ const Banner = () => {
     >
       {/* Background Glow */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 w-64 h-64 bg-blue-600 rounded-full blur-3xl animate-[pulse_5s_ease-in-out_infinite]" />
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-cyan-700 rounded-full blur-3xl animate-[pulse_6s_ease-in-out_infinite]" />
+        <div className="absolute top-20 left-20 w-64 h-64 bg-blue-600 rounded-full blur-3xl animate-[pulse_1s_ease-in-out_infinite]" />
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-cyan-700 rounded-full blur-3xl animate-[pulse_1s_ease-in-out_infinite]" />
       </div>
 
       <div className="relative z-10 container mx-auto px-8 py-5 min-h-screen flex flex-col-reverse lg:flex-row items-center justify-around">
@@ -129,7 +129,7 @@ const Banner = () => {
             <div className="absolute inset-0 rounded-full "></div>
 
             {/* Profile Circle */}
-            <div className="relative w-full h-full bg-gray-400/70 shadow-[0_0_30px_rgba(6,182,212,0.7)] rounded-full border-2 border-orange-500 overflow-hidden">
+            <div className="relative w-full h-full  shadow-[0_0_30px_rgba(6,182,212,0.7)] rounded-full border-2 border-orange-500 overflow-hidden">
               <img
                 src="https://i.ibb.co/5gQJ3X1L/1759690342585-1.png"
                 alt="Profile"
