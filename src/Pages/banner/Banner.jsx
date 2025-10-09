@@ -21,7 +21,7 @@ const Banner = () => {
   return (
     <div
       id="banner"
-      className="bg-slate-800 text-white rounded-2xl relative overflow-hidden border border-orange-500 my-6 shadow-lg hover:shadow-orange-400/30"
+      className="bg-slate-800/80 text-white rounded-2xl relative overflow-hidden border border-orange-500 my-6 shadow-lg hover:shadow-orange-400/30"
     >
       {/* Background Glow */}
       <div className="absolute inset-0 opacity-10">

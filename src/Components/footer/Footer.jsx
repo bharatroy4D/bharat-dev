@@ -3,7 +3,7 @@ import { Github, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-800 text-white p-8">
+    <footer className="bg-slate-800/80 text-white p-8">
       <div className="max-w-7xl mx-auto">
         {/* Logo/Name Section */}
         <div className="flex justify-center items-center gap-2 mb-4">

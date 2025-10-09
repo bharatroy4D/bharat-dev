@@ -145,7 +145,7 @@ const Projects = () => {
   ];
 
   return (
-    <div id="projects" className="min-h-screen bg-slate-800 rounded-2xl border border-orange-500 shadow-lg hover:shadow-orange-400/30 py-16 px-8">
+    <div id="projects" className="min-h-screen bg-slate-800/80 rounded-2xl border border-orange-500 shadow-lg hover:shadow-orange-400/30 py-16 px-8">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-10 md:mb-16">

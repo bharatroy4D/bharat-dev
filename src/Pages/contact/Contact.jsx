@@ -4,7 +4,7 @@ const Contact = () => {
 
 
     return (
-        <div id='contact' className="min-h-screen bg-gradient-to-br from-slate-800 via-slate-700 to-teal-900 shadow-lg hover:shadow-orange-400/30 text-white mt-6 rounded-2xl  py-10 px-8">
+        <div id='contact' className="min-h-screen bg-gradient-to-br from-slate-800/70 via-slate-700 to-teal-900 shadow-lg hover:shadow-orange-400/30 text-white mt-6 rounded-2xl  py-10 px-8">
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="mb-12">
