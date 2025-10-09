@@ -125,7 +125,7 @@ const Services = () => {
         </p>
         <motion.a
           whileHover={{ scale: 1.1 }}
-          href="#contact"
+          href="#services"
           className="inline-block mt-6 px-8 py-3 bg-gradient-to-r from-cyan-700 to-purple-500 
                      rounded-full text-white font-medium shadow-lg hover:shadow-cyan-500/30 transition-all"
         >
