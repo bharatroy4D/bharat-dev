@@ -121,29 +121,24 @@ const Banner = () => {
         </motion.div>
 
         {/* Right Side - Profile Image */}
-        <motion.div
+        <div
           className="flex justify-center lg:justify-start mb-10 lg:mb-0"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+      
         >
           <div className="relative w-80 h-80">
             {/* Glowing Border */}
-            <div className="absolute inset-0 rounded-full blur-xl opacity-30"></div>
+            <div className="absolute inset-0 rounded-full "></div>
 
             {/* Profile Circle */}
             <div className="relative w-full h-full bg-gray-400/70 shadow-[0_0_30px_rgba(6,182,212,0.7)] rounded-full border-2 border-orange-500 overflow-hidden">
               <img
                 src="https://i.ibb.co/5gQJ3X1L/1759690342585-1.png"
                 alt="Profile"
-                loading="lazy"
-                className="w-full h-full object-cover transition-opacity duration-700 opacity-0"
-                onLoad={(e) => (e.target.style.opacity = 1)}
+                className="w-full h-full object-cover"
               />
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
   );
