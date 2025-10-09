@@ -129,9 +129,9 @@ const Banner = () => {
             <div className="absolute inset-0 rounded-full "></div>
 
             {/* Profile Circle */}
-            <div className="relative w-full h-full  shadow-[0_0_30px_rgba(6,182,212,0.7)] rounded-full border-2 border-orange-500 overflow-hidden">
+            <div className="relative w-full h-full bg-gray-400/50 shadow-[0_0_30px_rgba(6,182,212,0.7)] rounded-full border-2 border-orange-500 overflow-hidden">
               <img
-                src="https://i.ibb.co/5gQJ3X1L/1759690342585-1.png"
+                src="https://i.ibb.co.com/gbHS96zt/abcd.png"
                 alt="Profile"
                 className="w-full h-full object-cover"
               />
