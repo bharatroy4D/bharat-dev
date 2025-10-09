@@ -115,14 +115,14 @@ const Banner = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Contact Me <Send className="w-4 h-4" />
+              <a href="#contact" className="flex items-center gap-1"> Contact Me <Send className="w-4 h-4" /> </a>
             </motion.button>
           </motion.div>
         </motion.div>
 
         {/* Right Side - Profile Image */}
         <div
-          className="flex justify-center lg:justify-start mb-10 lg:mb-0"    
+          className="flex justify-center lg:justify-start mb-10 lg:mb-0"
         >
           <div className="relative w-80 h-80">
             {/* Glowing Border */}
