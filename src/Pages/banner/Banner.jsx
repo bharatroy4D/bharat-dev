@@ -1,6 +1,7 @@
 import React from "react";
 import { Facebook, Twitter, Linkedin, Github, Send } from "lucide-react";
 import { Typewriter } from "react-simple-typewriter";
+import profileImg from "../../assets/profileImg.png"
 
 const Banner = () => {
   const socialLinks = [
@@ -81,7 +82,7 @@ const Banner = () => {
           <div className="relative w-80 h-80">
             <div className="relative w-full h-full bg-gray-400/50 shadow-[0_0_30px_rgba(6,182,212,0.7)] rounded-full border-2 border-orange-500 overflow-hidden">
               <img
-                src="https://i.ibb.co.com/RkR3LjvR/1759690342585-1.png"
+                src={profileImg}
                 alt="Profile"
                 className="w-full h-full object-cover"
               />
