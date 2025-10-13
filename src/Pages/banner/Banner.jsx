@@ -28,7 +28,7 @@ const Banner = () => {
 
       </div>
 
-      <div className="relative z-10 container mx-auto px-8 py-5 min-h-screen flex flex-col-reverse lg:flex-row items-center justify-around">
+      <div className="relative z-10 container mx-auto px-8 md:py-25  flex flex-col-reverse lg:flex-row items-center justify-around">
         {/* Left Side - Text */}
         <motion.div
           className="space-y-6 text-center lg:text-left"
