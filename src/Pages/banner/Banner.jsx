@@ -16,7 +16,7 @@ const Banner = () => {
       id="banner"
       className="bg-slate-800/80 text-white rounded-2xl relative overflow-hidden border border-orange-500 my-6 shadow-lg hover:shadow-orange-400/30"
     >
-      <div className="relative z-10 container mx-auto px-8 md:py-25 flex flex-col-reverse lg:flex-row items-center justify-around">
+      <div className="relative z-10 container mx-auto px-8 py-10 md:py-25 flex flex-col-reverse lg:flex-row items-center justify-around">
         {/* Left Side - Text */}
         <div className="space-y-6 text-center lg:text-left">
           <div className="text-lg text-gray-300">Hello, I'm</div>
