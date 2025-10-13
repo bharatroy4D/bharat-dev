@@ -116,7 +116,7 @@ const Services = () => {
       </div>
 
       {/* CTA Section */}
-      <div className="text-center mt-14">
+      <div className="text-center mt-6 lg:mt-14">
         <h2 className="text-lg font-semibold text-cyan-400">
           Ready to work together?
         </h2>
