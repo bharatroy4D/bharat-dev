@@ -27,7 +27,7 @@ const About = () => {
   return (
     <div
       id="about"
-      className="bg-slate-800/80 text-white min-h-screen rounded-2xl border border-orange-500 shadow-lg hover:shadow-orange-400/30 py-10 lg:py-20 px-6 lg:px-16 relative overflow-hidden"
+      className="bg-slate-800/80 text-white  rounded-2xl border border-orange-500 shadow-lg hover:shadow-orange-400/30 py-10 lg:py-20 px-6 lg:px-16 relative overflow-hidden"
     >
       {/* Background Gradient Effects */}
       <div className="absolute top-20 left-20 w-72 h-72 bg-cyan-600/45 rounded-full blur-3xl opacity-20"></div>
