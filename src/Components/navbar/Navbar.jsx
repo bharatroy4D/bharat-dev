@@ -36,13 +36,12 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`w-full z-50 transition-all duration-500 ${
-        dark ? "bg-gray-800/80 text-white" : "bg-white text-gray-900"
-      } shadow-lg`}
+      className={`w-full z-50 transition-all duration-500 ${dark ? "bg-gray-800/80 text-white" : "bg-white text-gray-900"
+        } shadow-lg`}
     >
       {/* Container */}
       <div
-        className={`flex items-center justify-between px-5 py-3 md:px-10 border border-orange-500 rounded-2xl`}
+        className={`flex items-center justify-between px-5 py-3 md:px-10 ${dark ? "border border-orange-500 rounded-2xl" : "border border-orange-500 rounded-2xl"}`}
       >
         {/* Logo */}
         <a href="#banner" className="text-2xl font-bold">
@@ -55,11 +54,10 @@ const Navbar = () => {
             <button
               key={menu.id}
               onClick={() => handleScroll(menu.id)}
-              className={`flex items-center gap-2 text-sm font-medium duration-300 ${
-                dark
+              className={`flex items-center gap-2 text-sm font-medium duration-300 ${dark
                   ? "hover:text-yellow-400 text-gray-200"
                   : "hover:text-blue-500 text-gray-700"
-              }`}
+                }`}
             >
               {menu.icon}
               {menu.name}
@@ -72,11 +70,10 @@ const Navbar = () => {
           {/* Theme Toggle */}
           <button
             onClick={toggleTheme}
-            className={`p-2 rounded-full shadow-md duration-300 ${
-              dark
+            className={`p-2 rounded-full shadow-md duration-300 ${dark
                 ? "bg-gray-700 hover:bg-gray-600 text-yellow-400"
                 : "bg-gray-200 hover:bg-gray-300 text-gray-800"
-            }`}
+              }`}
           >
             {dark ? <MdLightMode size={20} /> : <MdDarkMode size={20} />}
           </button>
@@ -86,11 +83,10 @@ const Navbar = () => {
             href="https://drive.google.com/file/d/1ewYkksnTMzcMpkdw4xSP7HDTba8g3yth/view"
             target="_blank"
             rel="noopener noreferrer"
-            className={`hidden lg:flex items-center gap-2 px-4 py-2 rounded-full font-medium shadow-md duration-300 ${
-              dark
+            className={`hidden lg:flex items-center gap-2 px-4 py-2 rounded-full font-medium shadow-md duration-300 ${dark
                 ? "bg-gradient-to-r from-yellow-500 via-orange-500 to-pink-500 hover:opacity-90 text-white"
                 : "bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:opacity-90 text-white"
-            }`}
+              }`}
           >
             <FaDownload /> Resume
           </a>
@@ -104,11 +100,10 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 right-0 h-screen w-2/3 transform transition-transform duration-500 ease-in-out lg:hidden flex flex-col items-center py-5 gap-8 ${
-          dark
+        className={`fixed top-0 right-0 h-screen w-2/3 transform transition-transform duration-500 ease-in-out lg:hidden flex flex-col items-center py-5 gap-8 ${dark
             ? "bg-gray-900 text-white border-l border-yellow-400"
             : "bg-gray-100 text-gray-900 border-l border-blue-400"
-        } ${isOpen ? "translate-x-0" : "translate-x-full"}`}
+          } ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         <div className="flex justify-between items-center w-full px-6 border-b border-gray-500 pb-2">
           <h1 className="text-lg font-bold">Menu</h1>
@@ -121,9 +116,8 @@ const Navbar = () => {
           <button
             key={menu.id}
             onClick={() => handleScroll(menu.id)}
-            className={`flex items-center w-full px-6 gap-3 text-lg duration-300 ${
-              dark ? "hover:text-yellow-400" : "hover:text-blue-500"
-            }`}
+            className={`flex items-center w-full px-6 gap-3 text-lg duration-300 ${dark ? "hover:text-yellow-400" : "hover:text-blue-500"
+              }`}
           >
             {menu.icon}
             {menu.name}
@@ -134,11 +128,10 @@ const Navbar = () => {
           href="https://drive.google.com/file/d/1ewYkksnTMzcMpkdw4xSP7HDTba8g3yth/view"
           target="_blank"
           rel="noopener noreferrer"
-          className={`flex items-center gap-2 px-4 py-2 rounded-full shadow-md font-medium duration-300 ${
-            dark
+          className={`flex items-center gap-2 px-4 py-2 rounded-full shadow-md font-medium duration-300 ${dark
               ? "bg-gradient-to-r from-yellow-500 via-orange-500 to-pink-500 text-white"
               : "bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white"
-          }`}
+            }`}
         >
           <FaDownload />
           Resume
