@@ -1,18 +1,23 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { Eye, Code, Server } from 'lucide-react';
+import { useTheme } from "../../context/ThemeContext"; // 🌙 Theme Context import
 
 const ProjectCard = ({ image, title, description, technologies, links }) => {
+  const { theme } = useTheme();
+
   return (
     <div
-      className="bg-slate-800/80 rounded-2xl overflow-hidden shadow-xl 
-                 transform transition-all duration-500 hover:scale-110 hover:shadow-slate-400/40"
+      className={`rounded-2xl overflow-hidden transform transition-all duration-500 hover:scale-110 shadow-xl ${
+        theme === "dark"
+          ? "bg-slate-800/80 shadow-slate-400/40"
+          : "bg-white shadow-gray-400/30"
+      }`}
     >
       {/* Project Image */}
-      <div className="relative h-72 overflow-hidden bg-white p-4">
+      <div className={`relative h-72 overflow-hidden p-4 ${theme === "dark" ? "bg-gray-900" : "bg-gray-100"}`}>
         <div
-          className="w-full h-full bg-gray-100 rounded-lg transform rotate-3 
-                     hover:rotate-0 transition-transform duration-500"
+          className="w-full h-full rounded-lg transform rotate-3 hover:rotate-0 transition-transform duration-500"
         >
           <img
             src={image}
@@ -25,22 +30,26 @@ const ProjectCard = ({ image, title, description, technologies, links }) => {
       {/* Card Content */}
       <div className="p-4">
         {/* Technology Badges */}
-        <div className="flex gap-2 mb-4">
+        <div className="flex gap-2 mb-4 flex-wrap">
           {technologies.frontend.map((tech, index) => (
             <span
               key={`frontend-${index}`}
-              className="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500 text-white"
+              className={`px-3 py-1 rounded-full text-xs font-semibold transition-colors duration-300 ${
+                theme === "dark" ? "bg-blue-600 text-white" : "bg-blue-300 text-gray-900"
+              }`}
             >
               {tech}
             </span>
           ))}
         </div>
 
-        <div className="flex gap-2 mb-4">
+        <div className="flex gap-2 mb-4 flex-wrap">
           {technologies.backend.map((tech, index) => (
             <span
               key={`backend-${index}`}
-              className="px-3 py-1 rounded-full text-xs font-semibold bg-green-500 text-white"
+              className={`px-3 py-1 rounded-full text-xs font-semibold transition-colors duration-300 ${
+                theme === "dark" ? "bg-green-600 text-white" : "bg-green-300 text-gray-900"
+              }`}
             >
               {tech}
             </span>
@@ -48,20 +57,27 @@ const ProjectCard = ({ image, title, description, technologies, links }) => {
         </div>
 
         {/* Project Title */}
-        <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
+        <h3 className={`text-xl font-semibold mb-2 transition-colors duration-300 ${theme === "dark" ? "text-white" : "text-gray-900"}`}>
+          {title}
+        </h3>
 
         {/* Project Description */}
-        <p className="text-gray-400 text-sm mb-1">{description}</p>
+        <p className={`text-sm mb-1 transition-colors duration-300 ${theme === "dark" ? "text-gray-400" : "text-gray-700"}`}>
+          {description}
+        </p>
 
         {/* Action Buttons */}
-        <div className="flex justify-center gap-3 mt-6">
+        <div className="flex justify-center gap-3 mt-6 flex-wrap">
           {links.live && (
             <Link
               to={links.live}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 bg-transparent border-2 border-gray-600 
-                         text-white rounded-full hover:bg-slate-700 transition-colors text-sm font-medium"
+              className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors duration-300 border-2 ${
+                theme === "dark"
+                  ? "bg-transparent border-gray-600 text-white hover:bg-slate-700"
+                  : "bg-transparent border-gray-300 text-gray-900 hover:bg-gray-200"
+              }`}
             >
               <Eye className="w-4 h-4" /> Live
             </Link>
@@ -72,8 +88,11 @@ const ProjectCard = ({ image, title, description, technologies, links }) => {
               to={links.code}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 bg-transparent border-2 border-gray-600 
-                         text-white rounded-full hover:bg-slate-700 transition-colors text-sm font-medium"
+              className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors duration-300 border-2 ${
+                theme === "dark"
+                  ? "bg-transparent border-gray-600 text-white hover:bg-slate-700"
+                  : "bg-transparent border-gray-300 text-gray-900 hover:bg-gray-200"
+              }`}
             >
               <Code className="w-4 h-4" /> Code
             </Link>
@@ -84,8 +103,11 @@ const ProjectCard = ({ image, title, description, technologies, links }) => {
               to={links.server}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden lg:flex items-center gap-2 px-4 py-2 bg-transparent border-2 border-gray-600 
-                         text-white rounded-full hover:bg-slate-700 transition-colors text-sm font-medium"
+              className={`hidden lg:flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors duration-300 border-2 ${
+                theme === "dark"
+                  ? "bg-transparent border-gray-600 text-white hover:bg-slate-700"
+                  : "bg-transparent border-gray-300 text-gray-900 hover:bg-gray-200"
+              }`}
             >
               <Server className="w-4 h-4" /> Server
             </Link>
@@ -97,6 +119,8 @@ const ProjectCard = ({ image, title, description, technologies, links }) => {
 };
 
 const Projects = () => {
+  const { theme } = useTheme();
+
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const projects = [
@@ -145,14 +169,35 @@ const Projects = () => {
   ];
 
   return (
-    <div id="projects" className="min-h-screen bg-slate-800/80 rounded-2xl border border-orange-500 shadow-lg hover:shadow-orange-400/30 py-16 px-8">
+    <div
+      id="projects"
+      className={`min-h-screen rounded-2xl border shadow-lg transition-all duration-500 py-16 px-8 ${
+        theme === "dark"
+          ? "bg-slate-800/80 border-yellow-500 hover:shadow-yellow-400/30 text-white"
+          : "bg-gray-100 border-blue-400 hover:shadow-blue-400/30 text-gray-900"
+      }`}
+    >
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-10 md:mb-16">
-          <h2 className="text-3xl font-bold text-white mb-4 flex items-center justify-center gap-4">
-            <span className="w-16 h-0.5 bg-pink-500"></span>
-            <h1 className="text-yellow-400">My Projects</h1>
-            <span className="w-16 h-0.5 bg-pink-500"></span>
+          <h2 className="text-3xl font-bold mb-4 flex items-center justify-center gap-4">
+            <span
+              className={`w-16 h-0.5 transition-colors duration-300 ${
+                theme === "dark" ? "bg-pink-500" : "bg-blue-500"
+              }`}
+            ></span>
+            <h1
+              className={`text-2xl font-bold transition-colors duration-300 ${
+                theme === "dark" ? "text-yellow-400" : "text-blue-600"
+              }`}
+            >
+              My Projects
+            </h1>
+            <span
+              className={`w-16 h-0.5 transition-colors duration-300 ${
+                theme === "dark" ? "bg-pink-500" : "bg-blue-500"
+              }`}
+            ></span>
           </h2>
         </div>
 
@@ -169,8 +214,15 @@ const Projects = () => {
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all ${currentSlide === index ? 'bg-pink-500 w-8' : 'bg-gray-600'
-                }`}
+              className={`w-3 h-3 rounded-full transition-all ${
+                currentSlide === index
+                  ? theme === "dark"
+                    ? "bg-pink-500 w-8"
+                    : "bg-blue-600 w-8"
+                  : theme === "dark"
+                  ? "bg-gray-600"
+                  : "bg-gray-400"
+              }`}
             />
           ))}
         </div>

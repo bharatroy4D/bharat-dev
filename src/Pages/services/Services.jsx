@@ -8,6 +8,7 @@ import {
   Database,
   Shield,
 } from "lucide-react";
+import { useTheme } from "../../context/ThemeContext"; // 🌙 Theme Context import
 
 const services = [
   {
@@ -62,19 +63,43 @@ const cardVariants = {
 };
 
 const Services = () => {
+  const { theme } = useTheme(); // ✅ Access current theme
+
   return (
     <div
       id="services"
-      className="bg-slate-800/80 rounded-2xl border border-orange-500 shadow-lg hover:shadow-orange-400/30 text-white py-16 px-6 lg:px-16 my-7"
+      className={`rounded-2xl border shadow-lg transition-all duration-500 py-16 px-6 lg:px-16 my-7 ${
+        theme === "dark"
+          ? "bg-slate-800/80 border-yellow-500 hover:shadow-yellow-400/30 text-white"
+          : "bg-gray-100 border-blue-400 hover:shadow-blue-400/30 text-gray-900"
+      }`}
     >
       {/* Hero Section */}
       <div className="text-center max-w-3xl mx-auto mb-12">
-        <h2 className="text-3xl font-bold text-white mb-6 flex items-center justify-center gap-4">
-          <span className="w-16 h-0.5 bg-pink-500"></span>
-          <h1 className="text-yellow-400">My Services</h1>
-          <span className="w-16 h-0.5 bg-pink-500"></span>
+        <h2 className="text-3xl font-bold mb-6 flex items-center justify-center gap-4">
+          <span
+            className={`w-16 h-0.5 transition-colors duration-300 ${
+              theme === "dark" ? "bg-pink-500" : "bg-blue-500"
+            }`}
+          ></span>
+          <h1
+            className={`text-2xl font-bold transition-colors duration-300 ${
+              theme === "dark" ? "text-yellow-400" : "text-blue-600"
+            }`}
+          >
+            My Services
+          </h1>
+          <span
+            className={`w-16 h-0.5 transition-colors duration-300 ${
+              theme === "dark" ? "bg-pink-500" : "bg-blue-500"
+            }`}
+          ></span>
         </h2>
-        <p className="text-gray-400 mt-4">
+        <p
+          className={`mt-4 transition-colors duration-300 ${
+            theme === "dark" ? "text-gray-400" : "text-gray-700"
+          }`}
+        >
           I provide professional web development services to help businesses and
           individuals build modern, responsive, and high-performing digital
           products.
@@ -88,8 +113,8 @@ const Services = () => {
             i % 3 === 0
               ? "hiddenLeft"
               : i % 3 === 1
-                ? "hiddenDown"
-                : "hiddenRight";
+              ? "hiddenDown"
+              : "hiddenRight";
 
           return (
             <motion.div
@@ -99,15 +124,25 @@ const Services = () => {
               whileInView="visible"
               viewport={{ once: false, amount: 0.2 }}
               whileHover={{ scale: 1.04 }}
-              className="p-8 bg-slate-700 rounded-2xl border border-cyan-800 
-                         hover:border-cyan-400 hover:shadow-[0_0_15px_2px_rgba(34,211,238,0.5)] 
-                         transition-all duration-200"
+              className={`p-8 rounded-2xl border transition-all duration-200 ${
+                theme === "dark"
+                  ? "bg-slate-700 border-cyan-800 hover:border-cyan-400 hover:shadow-[0_0_15px_2px_rgba(34,211,238,0.5)] text-white"
+                  : "bg-white border-gray-300 hover:border-blue-400 hover:shadow-[0_0_15px_2px_rgba(59,130,246,0.4)] text-gray-900"
+              }`}
             >
               <div className="mb-4">{service.icon}</div>
-              <h3 className="text-lg font-semibold text-cyan-400">
+              <h3
+                className={`text-lg font-semibold mb-2 transition-colors duration-300 ${
+                  theme === "dark" ? "text-cyan-400" : "text-blue-600"
+                }`}
+              >
                 {service.title}
               </h3>
-              <p className="text-sm text-gray-400 mt-2">
+              <p
+                className={`text-sm mt-2 transition-colors duration-300 ${
+                  theme === "dark" ? "text-gray-400" : "text-gray-700"
+                }`}
+              >
                 {service.description}
               </p>
             </motion.div>
@@ -117,17 +152,28 @@ const Services = () => {
 
       {/* CTA Section */}
       <div className="text-center mt-6 lg:mt-14">
-        <h2 className="text-lg font-semibold text-cyan-400">
+        <h2
+          className={`text-lg font-semibold transition-colors duration-300 ${
+            theme === "dark" ? "text-cyan-400" : "text-blue-600"
+          }`}
+        >
           Ready to work together?
         </h2>
-        <p className="text-sm text-gray-400 mt-2">
+        <p
+          className={`text-sm mt-2 transition-colors duration-300 ${
+            theme === "dark" ? "text-gray-400" : "text-gray-700"
+          }`}
+        >
           Let’s build something amazing! Contact me for your next project.
         </p>
         <motion.a
           whileHover={{ scale: 1.1 }}
-          href="#services"
-          className="inline-block mt-6 px-8 py-3 bg-gradient-to-r from-cyan-700 to-purple-500 
-                     rounded-full text-white font-medium shadow-lg hover:shadow-cyan-500/30 transition-all"
+          href="#contact"
+          className={`inline-block mt-6 px-8 py-3 rounded-full font-medium shadow-lg transition-all duration-300 ${
+            theme === "dark"
+              ? "bg-gradient-to-r from-cyan-700 to-purple-500 text-white hover:shadow-cyan-500/30"
+              : "bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:shadow-blue-400/30"
+          }`}
         >
           Get In Touch
         </motion.a>
