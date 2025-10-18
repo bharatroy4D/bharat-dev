@@ -11,7 +11,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="min-h-screen bg-gradient-to-b from-gray-800/80 to-gray-900/80 rounded-2xl border border-orange-500 text-white py-16 md:py-24 px-6 flex flex-col justify-center items-center"
+      className="min-h-screen bg-gradient-to-b from-gray-800/80 to-gray-900/80 rounded-2xl border border-orange-500 shadow-lg hover:shadow-orange-400/30 text-white py-16 md:py-24 px-6 flex flex-col justify-center items-center"
     >
       {/* Heading */}
       <motion.h2

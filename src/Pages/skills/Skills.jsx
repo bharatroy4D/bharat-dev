@@ -39,9 +39,9 @@ const skills = [
 
 const Skills = () => {
   return (
-    <section className="py-16 bg-gray-800/80 rounded-2xl border border-orange-500 mt-6" id="skills">
+    <section className=" py-12 md:py-20 bg-gray-800/80 rounded-2xl border shadow-lg hover:shadow-orange-400/30 border-orange-500 mt-6" id="skills">
       <div className="container mx-auto px-6">
-         <h2 className="text-3xl font-bold text-white mb-6 flex items-center justify-center gap-4">
+         <h2 className="text-3xl font-bold text-white mb-12 flex items-center  justify-center gap-4">
           <span className="w-16 h-0.5 bg-pink-500"></span>
           <h1 className="text-yellow-400">My Skills</h1>
           <span className="w-16 h-0.5 bg-pink-500"></span>
