@@ -7,70 +7,89 @@ import Services from "./Pages/services/Services";
 import Projects from "./Pages/projects/Projects";
 import Banner from "./Pages/banner/Banner";
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
-import "./App.css";
 import Skills from "./Pages/skills/Skills";
+import { ThemeProvider, useTheme } from "./context/ThemeContext"; // 🌙 Theme Context
+import "./App.css";
 
+const AppContent = () => {
+  const { theme } = useTheme();
+
+  // Theme based classes
+  const bgClass =
+    theme === "dark"
+      ? "bg-gray-900 text-white"
+      : "bg-gray-100 text-gray-900";
+
+  const gridStroke = theme === "dark" ? "yellow" : "gray";
+
+  return (
+    <div className={`relative min-h-screen overflow-hidden z-30 ${bgClass}`}>
+      {/* Animated Background Grid Lines */}
+      <div className="absolute -z-20 inset-0 overflow-hidden opacity-20">
+        <div className="grid-wrapper">
+          <svg className="grid-svg">
+            <defs>
+              <pattern
+                id="grid"
+                width="30"
+                height="30"
+                patternUnits="userSpaceOnUse"
+              >
+                <path
+                  d="M 30 0 L 0 0 0 30"
+                  fill="none"
+                  stroke={gridStroke}
+                  strokeWidth="2"
+                />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)" />
+          </svg>
+
+          <svg className="grid-svg">
+            <defs>
+              <pattern
+                id="grid2"
+                width="30"
+                height="30"
+                patternUnits="userSpaceOnUse"
+              >
+                <path
+                  d="M 30 0 L 0 0 0 30"
+                  fill="none"
+                  stroke={gridStroke}
+                  strokeWidth="2"
+                />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid2)" />
+          </svg>
+        </div>
+      </div>
+
+      {/* Page Content */}
+      <div className="container mx-auto py-6 px-4 lg:px-15 poppins z-10">
+        <Navbar />
+        <Banner />
+        <About />
+        <Skills />
+        <Services />
+        <Projects />
+        <Contact />
+      </div>
+
+      <Footer />
+      <ScrollToTop />
+    </div>
+  );
+};
+
+// Wrap App in ThemeProvider
 const App = () => {
   return (
-    <div className="relative min-h-screen overflow-hidden z-30 bg-gray-900">
-      <div className="">
-        {/* Animated Background Grid Lines */}
-        <div className="absolute -z-20 inset-0 overflow-hidden opacity-20">
-          <div className="grid-wrapper">
-            <svg className="grid-svg">
-              <defs>
-                <pattern
-                  id="grid"
-                  width="30"
-                  height="30"
-                  patternUnits="userSpaceOnUse"
-                >
-                  <path
-                    d="M 30 0 L 0 0 0 30"
-                    fill="none"
-                    stroke="rgba(96, 165, 250, 0.8)"
-                    strokeWidth="1"
-                  />
-                </pattern>
-              </defs>
-              <rect width="100%" height="100%" fill="url(#grid)" />
-            </svg>
-
-            {/* Duplicate for seamless effect */}
-            <svg className="grid-svg">
-              <defs>
-                <pattern
-                  id="grid2"
-                  width="30"
-                  height="30"
-                  patternUnits="userSpaceOnUse"
-                >
-                  <path
-                    d="M 30 0 L 0 0 0 30"
-                    fill="none"
-                    stroke="rgba(96, 165, 250, 0.8)"
-                    strokeWidth="1"
-                  />
-                </pattern>
-              </defs>
-              <rect width="100%" height="100%" fill="url(#grid2)" />
-            </svg>
-          </div>
-        </div>
-        {/* Page Content */}
-        <div className="container mx-auto py-6 px-4 lg:px-15 poppins z-10">
-          <Navbar />
-          <Banner />
-          <About />
-          <Skills/>
-          <Services />
-          <Projects />
-          <Contact />
-        </div>
-        <Footer />
-        <ScrollToTop />
-      </div>
-    </div>
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   );
 };
 
