@@ -18,50 +18,110 @@ import {
   SiMongodb,
   SiFigma,
 } from "react-icons/si";
+import { useTheme } from "../../context/ThemeContext"; // 🌙 Theme Context import
 
 const skills = [
-  { name: "HTML5", icon: <FaHtml5 className="text-orange-500" /> },
-  { name: "CSS3", icon: <FaCss3Alt className="text-blue-500" /> },
-  { name: "JavaScript", icon: <FaJsSquare className="text-yellow-400" /> },
-  { name: "React", icon: <FaReact className="text-cyan-400" /> },
-  { name: "Tailwind CSS", icon: <SiTailwindcss className="text-sky-400" /> },
-  { name: "Bootstrap", icon: <SiBootstrap className="text-purple-500" /> },
-  { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
-  { name: "Git", icon: <FaGitAlt className="text-red-500" /> },
-  { name: "GitHub", icon: <FaGithub className="text-gray-100" /> },
-  { name: "Postman", icon: <SiPostman className="text-orange-600" /> },
-  { name: "Vercel", icon: <SiVercel className="text-white" /> },
-  { name: "Redux", icon: <SiRedux className="text-purple-400" /> },
-  { name: "Express", icon: <SiExpress className="text-gray-200" /> },
-  { name: "MongoDB", icon: <SiMongodb className="text-green-600" /> },
-  { name: "Figma", icon: <SiFigma className="text-pink-500" /> },
+  { name: "HTML5", icon: <FaHtml5 /> },
+  { name: "CSS3", icon: <FaCss3Alt /> },
+  { name: "JavaScript", icon: <FaJsSquare /> },
+  { name: "React", icon: <FaReact /> },
+  { name: "Tailwind CSS", icon: <SiTailwindcss /> },
+  { name: "Bootstrap", icon: <SiBootstrap /> },
+  { name: "Node.js", icon: <FaNodeJs /> },
+  { name: "Git", icon: <FaGitAlt /> },
+  { name: "GitHub", icon: <FaGithub /> },
+  { name: "Postman", icon: <SiPostman /> },
+  { name: "Vercel", icon: <SiVercel /> },
+  { name: "Redux", icon: <SiRedux /> },
+  { name: "Express", icon: <SiExpress /> },
+  { name: "MongoDB", icon: <SiMongodb /> },
+  { name: "Figma", icon: <SiFigma /> },
 ];
 
 const Skills = () => {
+  const { theme } = useTheme(); // ✅ Access current theme
+
   return (
-    <section className=" py-12 md:py-20 bg-gray-800/80 rounded-2xl border shadow-lg hover:shadow-orange-400/30 border-orange-500 mt-6" id="skills">
+    <section
+      id="skills"
+      className={`py-12 md:py-20 rounded-2xl border shadow-lg transition-all duration-500 mt-6 ${
+        theme === "dark"
+          ? "bg-gray-800/80 border-yellow-500 hover:shadow-yellow-400/30"
+          : "bg-gray-100 border-blue-400 hover:shadow-blue-400/30"
+      }`}
+    >
       <div className="container mx-auto px-6">
-         <h2 className="text-3xl font-bold text-white mb-12 flex items-center  justify-center gap-4">
-          <span className="w-16 h-0.5 bg-pink-500"></span>
-          <h1 className="text-yellow-400">My Skills</h1>
-          <span className="w-16 h-0.5 bg-pink-500"></span>
+        <h2 className="text-3xl font-bold mb-12 flex items-center justify-center gap-4">
+          <span
+            className={`w-16 h-0.5 transition-colors duration-300 ${
+              theme === "dark" ? "bg-pink-500" : "bg-blue-500"
+            }`}
+          ></span>
+          <h1
+            className={`text-2xl font-bold transition-colors duration-300 ${
+              theme === "dark" ? "text-yellow-400" : "text-blue-600"
+            }`}
+          >
+            My Skills
+          </h1>
+          <span
+            className={`w-16 h-0.5 transition-colors duration-300 ${
+              theme === "dark" ? "bg-pink-500" : "bg-blue-500"
+            }`}
+          ></span>
         </h2>
 
         <div className="flex flex-wrap justify-center gap-6">
           {skills.map((skill, idx) => (
             <div
               key={idx}
-              className="group relative flex flex-col items-center justify-center w-40 h-24 bg-gray-900 rounded-lg shadow-md transition-all duration-300 cursor-pointer hover:scale-105"
-              style={{
-                boxShadow:
-                  "0 0 0px rgba(0,0,0,0)", // default no shadow
-              }}
+              className={`group relative flex flex-col items-center justify-center w-40 h-24 rounded-lg shadow-md transition-all duration-300 cursor-pointer hover:scale-105 ${
+                theme === "dark"
+                  ? "bg-gray-900 text-white hover:shadow-[0_0_20px_rgba(253,224,71,0.6)]"
+                  : "bg-white text-gray-900 hover:shadow-[0_0_20px_rgba(59,130,246,0.5)]"
+              }`}
             >
-              <div className="absolute inset-0 rounded-lg transition-shadow duration-300 group-hover:shadow-[0_0_20px_orange]"></div>
-
               <div className="relative z-10 flex flex-col items-center justify-center">
-                <div className="text-4xl mb-2">{skill.icon}</div>
-                <span className="text-white text-sm font-medium text-center">{skill.name}</span>
+                <div
+                  className={`text-4xl mb-2 ${
+                    skill.name === "HTML5"
+                      ? "text-orange-500"
+                      : skill.name === "CSS3"
+                      ? "text-blue-500"
+                      : skill.name === "JavaScript"
+                      ? "text-yellow-400"
+                      : skill.name === "React"
+                      ? "text-cyan-400"
+                      : skill.name === "Tailwind CSS"
+                      ? "text-sky-400"
+                      : skill.name === "Bootstrap"
+                      ? "text-purple-500"
+                      : skill.name === "Node.js"
+                      ? "text-green-500"
+                      : skill.name === "Git"
+                      ? "text-red-500"
+                      : skill.name === "GitHub"
+                      ? "text-gray-100"
+                      : skill.name === "Postman"
+                      ? "text-orange-600"
+                      : skill.name === "Vercel"
+                      ? "text-gray-800"
+                      : skill.name === "Redux"
+                      ? "text-purple-400"
+                      : skill.name === "Express"
+                      ? "text-gray-500"
+                      : skill.name === "MongoDB"
+                      ? "text-green-600"
+                      : skill.name === "Figma"
+                      ? "text-pink-500"
+                      : ""
+                  }`}
+                >
+                  {skill.icon}
+                </div>
+                <span className="text-sm font-medium text-center">
+                  {skill.name}
+                </span>
               </div>
             </div>
           ))}
