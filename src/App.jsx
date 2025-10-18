@@ -8,6 +8,7 @@ import Projects from "./Pages/projects/Projects";
 import Banner from "./Pages/banner/Banner";
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
 import "./App.css";
+import Skills from "./Pages/skills/Skills";
 
 const App = () => {
   return (
@@ -61,6 +62,7 @@ const App = () => {
           <Navbar />
           <Banner />
           <About />
+          <Skills/>
           <Services />
           <Projects />
           <Contact />

@@ -71,7 +71,7 @@ const Services = () => {
       <div className="text-center max-w-3xl mx-auto mb-12">
         <h2 className="text-3xl font-bold text-white mb-6 flex items-center justify-center gap-4">
           <span className="w-16 h-0.5 bg-pink-500"></span>
-          My Services
+          <h1 className="text-yellow-400">My Services</h1>
           <span className="w-16 h-0.5 bg-pink-500"></span>
         </h2>
         <p className="text-gray-400 mt-4">
@@ -88,8 +88,8 @@ const Services = () => {
             i % 3 === 0
               ? "hiddenLeft"
               : i % 3 === 1
-              ? "hiddenDown"
-              : "hiddenRight";
+                ? "hiddenDown"
+                : "hiddenRight";
 
           return (
             <motion.div

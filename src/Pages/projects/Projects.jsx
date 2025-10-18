@@ -151,7 +151,7 @@ const Projects = () => {
         <div className="text-center mb-10 md:mb-16">
           <h2 className="text-3xl font-bold text-white mb-4 flex items-center justify-center gap-4">
             <span className="w-16 h-0.5 bg-pink-500"></span>
-            My Projects
+            <h1 className="text-yellow-400">My Projects</h1>
             <span className="w-16 h-0.5 bg-pink-500"></span>
           </h2>
         </div>
@@ -169,9 +169,8 @@ const Projects = () => {
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all ${
-                currentSlide === index ? 'bg-pink-500 w-8' : 'bg-gray-600'
-              }`}
+              className={`w-3 h-3 rounded-full transition-all ${currentSlide === index ? 'bg-pink-500 w-8' : 'bg-gray-600'
+                }`}
             />
           ))}
         </div>
