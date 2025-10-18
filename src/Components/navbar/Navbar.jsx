@@ -36,12 +36,12 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`w-full z-50 transition-all duration-500 ${dark ? "bg-gray-800/80 text-white" : "bg-white text-gray-900"
+      className={`w-full z-50 transition-all duration-500 border border-orange-500 rounded-2xl ${dark ? "bg-gray-800/80 text-white" : "bg-white text-gray-900"
         } shadow-lg`}
     >
       {/* Container */}
       <div
-        className={`flex items-center justify-between px-5 py-3 md:px-10 ${dark ? "border border-orange-500 rounded-2xl" : "border border-orange-500 rounded-2xl"}`}
+        className={`flex items-center justify-between px-5 py-3 md:px-10 `}
       >
         {/* Logo */}
         <a href="#banner" className="text-2xl font-bold">
