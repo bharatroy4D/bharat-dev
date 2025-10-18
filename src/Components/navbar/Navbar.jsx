@@ -10,6 +10,7 @@ import {
 import { IoIosClose } from "react-icons/io";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { useTheme } from "../../context/themeContext";
 
 const Navbar = () => {
   const menuLink = [
@@ -20,36 +21,31 @@ const Navbar = () => {
     { id: "#contact", name: "Contact", icon: <FaEnvelope /> },
   ];
 
-  const [dark, setDark] = useState(true);
+  const { theme, toggleTheme } = useTheme(); // ✅ Fixed variable name
+  const dark = theme === "dark"; // ✅ boolean shortcut
+
   const [isOpen, setIsOpen] = useState(false);
 
-  // 🌙 Toggle Dark/Light Mode
-  const handleToggle = () => {
-    setDark(!dark);
-    document.documentElement.classList.toggle("dark");
-  };
+  const handleMenus = () => setIsOpen(!isOpen);
 
-  // 🍔 Toggle Mobile Menu
-  const handleMenus = () => {
-    setIsOpen(!isOpen);
-  };
-
-  // 🧭 Smooth Scroll Function
   const handleScroll = (id) => {
     const section = document.querySelector(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-    // scroll complete hobar pore menu bondho korbo
+    if (section) section.scrollIntoView({ behavior: "smooth" });
     setTimeout(() => setIsOpen(false), 400);
   };
 
   return (
-    <div className="poppins relative z-50">
-      {/* Navbar Container */}
-      <div className="flex items-center justify-between bg-gray-800 text-white rounded-2xl border border-orange-500 p-3 shadow-lg hover:shadow-orange-400/30">
+    <nav
+      className={`w-full z-50 transition-all duration-500 ${
+        dark ? "bg-gray-800/80 text-white" : "bg-white text-gray-900"
+      } shadow-lg`}
+    >
+      {/* Container */}
+      <div
+        className={`flex items-center justify-between px-5 py-3 md:px-10 border border-orange-500 rounded-2xl`}
+      >
         {/* Logo */}
-        <a href="#banner" className="text-2xl roboto font-bold">
+        <a href="#banner" className="text-2xl font-bold">
           Port<span className="text-yellow-400">folio</span>
         </a>
 
@@ -59,80 +55,92 @@ const Navbar = () => {
             <button
               key={menu.id}
               onClick={() => handleScroll(menu.id)}
-              className="flex items-center gap-2 cursor-pointer hover:text-yellow-400 duration-300"
+              className={`flex items-center gap-2 text-sm font-medium duration-300 ${
+                dark
+                  ? "hover:text-yellow-400 text-gray-200"
+                  : "hover:text-blue-500 text-gray-700"
+              }`}
             >
               {menu.icon}
-              <span className="text-sm">{menu.name}</span>
+              {menu.name}
             </button>
           ))}
         </div>
 
-        {/* Right Side */}
+        {/* Right side */}
         <div className="flex items-center gap-4">
           {/* Theme Toggle */}
           <button
-            onClick={handleToggle}
-            className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-black dark:text-white duration-300"
+            onClick={toggleTheme}
+            className={`p-2 rounded-full shadow-md duration-300 ${
+              dark
+                ? "bg-gray-700 hover:bg-gray-600 text-yellow-400"
+                : "bg-gray-200 hover:bg-gray-300 text-gray-800"
+            }`}
           >
             {dark ? <MdLightMode size={20} /> : <MdDarkMode size={20} />}
           </button>
 
-          {/* Hamburger Icon (Mobile) */}
-          <button onClick={handleMenus} className="lg:hidden text-2xl">
-            {isOpen ? (
-              <IoIosClose className="text-3xl" />
-            ) : (
-              <RxHamburgerMenu />
-            )}
-          </button>
-
-          {/* Resume Button (Desktop only) */}
+          {/* Resume (Desktop only) */}
           <a
             href="https://drive.google.com/file/d/1ewYkksnTMzcMpkdw4xSP7HDTba8g3yth/view"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden lg:flex items-center gap-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white px-4 py-2 rounded-full shadow-md hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 duration-300"
+            className={`hidden lg:flex items-center gap-2 px-4 py-2 rounded-full font-medium shadow-md duration-300 ${
+              dark
+                ? "bg-gradient-to-r from-yellow-500 via-orange-500 to-pink-500 hover:opacity-90 text-white"
+                : "bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:opacity-90 text-white"
+            }`}
           >
-            <FaDownload className="text-white" />
-            Resume
+            <FaDownload /> Resume
           </a>
+
+          {/* Mobile Menu Button */}
+          <button onClick={handleMenus} className="lg:hidden text-2xl">
+            {isOpen ? <IoIosClose /> : <RxHamburgerMenu />}
+          </button>
         </div>
       </div>
 
-      {/* Mobile Right Side Menu */}
+      {/* Mobile Menu */}
       <div
-        className={`fixed top-0 right-0 h-screen w-2/3 bg-gray-900 text-white border-l border-gray-700 transform ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        } transition-transform duration-500 ease-in-out lg:hidden flex flex-col items-center py-5 gap-8`}
+        className={`fixed top-0 right-0 h-screen w-2/3 transform transition-transform duration-500 ease-in-out lg:hidden flex flex-col items-center py-5 gap-8 ${
+          dark
+            ? "bg-gray-900 text-white border-l border-yellow-400"
+            : "bg-gray-100 text-gray-900 border-l border-blue-400"
+        } ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
-        {/* Header & Close Button */}
-        <div className="flex justify-between items-center w-full px-6 border-b border-orange-500 pb-2">
+        <div className="flex justify-between items-center w-full px-6 border-b border-gray-500 pb-2">
           <h1 className="text-lg font-bold">Menu</h1>
           <button onClick={handleMenus} className="text-4xl">
             <IoIosClose />
           </button>
         </div>
 
-        {/* Menu Links */}
         {menuLink.map((menu) => (
           <button
             key={menu.id}
             onClick={() => handleScroll(menu.id)}
-            className="flex items-center w-full px-6 gap-3 text-lg hover:text-yellow-400 duration-300"
+            className={`flex items-center w-full px-6 gap-3 text-lg duration-300 ${
+              dark ? "hover:text-yellow-400" : "hover:text-blue-500"
+            }`}
           >
             {menu.icon}
             {menu.name}
           </button>
         ))}
 
-        {/* Mobile Resume Button */}
         <a
           href="https://drive.google.com/file/d/1ewYkksnTMzcMpkdw4xSP7HDTba8g3yth/view"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white px-4 py-2 rounded-full shadow-md hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 duration-300"
+          className={`flex items-center gap-2 px-4 py-2 rounded-full shadow-md font-medium duration-300 ${
+            dark
+              ? "bg-gradient-to-r from-yellow-500 via-orange-500 to-pink-500 text-white"
+              : "bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white"
+          }`}
         >
-          <FaDownload className="text-white" />
+          <FaDownload />
           Resume
         </a>
       </div>
@@ -144,7 +152,7 @@ const Navbar = () => {
           onClick={handleMenus}
         ></div>
       )}
-    </div>
+    </nav>
   );
 };
 
