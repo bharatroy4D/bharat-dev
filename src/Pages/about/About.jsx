@@ -1,139 +1,94 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Typewriter } from "react-simple-typewriter";
-import Marquee from "react-fast-marquee";
-
-// React Icons Import
-import { FaReact, FaNodeJs, FaDatabase, FaLock } from "react-icons/fa";
-import { SiExpress, SiMongodb, SiRedux, SiTailwindcss } from "react-icons/si";
+import {
+  FaLaptopCode,
+  FaUserAlt,
+  FaLightbulb,
+  FaRocket,
+} from "react-icons/fa";
 
 const About = () => {
-  const skills = [
-    <FaReact className="text-cyan-400 text-4xl" />,
-    <FaNodeJs className="text-green-500 text-4xl" />,
-    <SiExpress className="text-gray-300 text-4xl" />,
-    <SiMongodb className="text-green-600 text-4xl" />,
-    <SiTailwindcss className="text-cyan-300 text-4xl" />,
-    <SiRedux className="text-purple-500 text-4xl" />,
-    <FaDatabase className="text-yellow-400 text-4xl" />,
-    <FaLock className="text-red-400 text-4xl" />,
-  ];
-
-  const experiences = [
-    { year: "2024", title: "Frontend Developer", company: "Online Platform" },
-    { year: "2025", title: "MERN Stack Developer", company: "Offline Training" },
-  ];
-
   return (
-    <div
+    <section
       id="about"
-      className="bg-slate-800/80 text-white  rounded-2xl border border-orange-500 shadow-lg hover:shadow-orange-400/30 py-10 lg:py-20 px-6 lg:px-16 relative overflow-hidden"
+      className="min-h-screen bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl border border-orange-500 text-white py-24 px-6 flex flex-col justify-center items-center"
     >
-      {/* Background Gradient Effects */}
-      <div className="absolute top-20 left-20 w-72 h-72 bg-cyan-600/45 rounded-full blur-3xl opacity-20"></div>
-      <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-600/45 rounded-full blur-3xl opacity-20"></div>
+      {/* Heading */}
+      <motion.h2
+        initial={{ opacity: 0, y: -30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-3xl md:text-4xl font-bold text-yellow-400 mb-6 text-center"
+      >
+        About Me
+      </motion.h2>
 
-      <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-        {/* Left Side - Text */}
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-          className="space-y-6"
-        >
-          <h1 className="flex gap-5 items-center text-xl lg:text-3xl font-medium bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-            <img
-              className="w-14 h-14 rounded-full border border-orange-500 bg-gray-400"
-              src="https://i.ibb.co.com/svcKk0YT/download.png"
-              alt=""
-            />
-            About Me
-          </h1>
-          <p className="text-gray-300 leading-relaxed text-base sm:text-lg lg:text-lg">
-            I'm <span className="text-yellow-400 font-semibold">Bharat Roy</span>, a passionate{" "}
-            <span className="text-cyan-400 font-medium">MERN Stack Developer</span> dedicated to building modern, responsive, and efficient web applications.
-            <br />
-            <span className="text-cyan-300 mt-2 block text-sm sm:text-base">
-              <Typewriter
-                words={[
-                  "Creating Interactive UIs",
-                  "Building Scalable Backends",
-                  "Delivering Quality Code",
-                ]}
-                loop={true}
-                cursor
-                cursorStyle="_"
-                typeSpeed={70}
-                deleteSpeed={40}
-                delaySpeed={1200}
-              />
-            </span>
-          </p>
+      {/* Sub Heading */}
+      <motion.p
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.2, duration: 0.8 }}
+        className="text-gray-400 text-center max-w-3xl leading-relaxed mb-12"
+      >
+        I’m <span className="text-yellow-400 font-semibold">Bharat Roy</span>, a creative
+        <span className="text-blue-400 font-semibold"> Frontend Developer</span> who loves
+        transforming ideas into interactive digital experiences. I focus on writing clean,
+        efficient, and maintainable code while delivering user-friendly interfaces.
+      </motion.p>
 
-          {/* Skills */}
-          <div>
-            <h2 className="text-2xl font-semibold text-cyan-400 mb-4">Skills</h2>
-
-            {/* First Line (Left → Right) */}
-            <Marquee pauseOnHover={true} gradient={false} speed={60}>
-              <div className="flex gap-8">
-                {skills.map((icon, i) => (
-                  <span
-                    key={i}
-                    className="flex items-center justify-center w-12 h-12 bg-slate-800 rounded border border-cyan-400 shadow-md hover:bg-cyan-400 hover:text-slate-900 transition-all"
-                  >
-                    {icon}
-                  </span>
-                ))}
-              </div>
-            </Marquee>
-
-            {/* Second Line (Right → Left) */}
-            <Marquee pauseOnHover={true} gradient={false} speed={60} direction="right">
-              <div className="flex gap-8 mt-6">
-                {skills.map((icon, i) => (
-                  <span
-                    key={i}
-                    className="flex items-center justify-center w-12 h-12 bg-slate-800 rounded border border-purple-400 shadow-md hover:bg-purple-400 hover:text-slate-900 transition-all"
-                  >
-                    {icon}
-                  </span>
-                ))}
-              </div>
-            </Marquee>
-          </div>
-        </motion.div>
-
-        {/* Right Side - Experience */}
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-          className="space-y-8 w-fit md:w-full"
-        >
-          <h2 className="text-2xl font-semibold text-cyan-400 mb-4">Experience</h2>
-          <div className="space-y-6">
-            {experiences.map((exp, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ scale: 1.03 }}
-                transition={{ duration: 0.2 }}
-                className="p-6 bg-slate-800 rounded-xl border border-slate-700 hover:border-cyan-400 hover:bg-slate-700 transition-all shadow-lg"
-              >
-                <div className="flex justify-between items-center">
-                  <div>
-                    <h3 className="text-lg">{exp.title}</h3>
-                    <p className="text-sm text-gray-400">{exp.company}</p>
-                  </div>
-                  <span className="text-yellow-400 font-bold">{exp.year}</span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+      {/* Info Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl w-full">
+        <InfoCard
+          icon={<FaUserAlt className="text-yellow-400 text-4xl mx-auto mb-4" />}
+          title="Who I Am"
+          text="A curious and self-motivated developer, always eager to learn and improve my skills."
+        />
+        <InfoCard
+          icon={<FaLaptopCode className="text-blue-400 text-4xl mx-auto mb-4" />}
+          title="What I Do"
+          text="I build responsive, modern web applications using React, Tailwind CSS, and Framer Motion."
+        />
+        <InfoCard
+          icon={<FaLightbulb className="text-pink-400 text-4xl mx-auto mb-4" />}
+          title="My Vision"
+          text="To create digital experiences that are both visually appealing and highly functional."
+        />
+        <InfoCard
+          icon={<FaRocket className="text-green-400 text-4xl mx-auto mb-4" />}
+          title="My Approach"
+          text="I combine creativity with technology to deliver seamless, interactive, and engaging web experiences."
+        />
       </div>
-    </div>
+
+      {/* Bottom Paragraph */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.5, duration: 0.8 }}
+        className="max-w-4xl text-gray-400 mt-16 text-center leading-relaxed"
+      >
+        <p>
+          I believe in building websites that not only function perfectly but also provide a delightful
+          user experience. By leveraging the latest frontend technologies and animation techniques, I
+          strive to create interfaces that are intuitive, responsive, and visually engaging.
+        </p>
+      </motion.div>
+    </section>
   );
 };
+
+// Reusable Info Card Component
+const InfoCard = ({ icon, title, text }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.7 }}
+    className="bg-gray-800/50 border border-gray-700 rounded-2xl p-6 text-center hover:border-yellow-400/50 transition-all duration-300"
+  >
+    {icon}
+    <h3 className="text-xl font-semibold mb-2">{title}</h3>
+    <p className="text-gray-400 text-sm leading-relaxed">{text}</p>
+  </motion.div>
+);
 
 export default About;

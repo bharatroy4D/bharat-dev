@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   FaHome,
   FaUser,
@@ -22,7 +22,6 @@ const Navbar = () => {
 
   const [dark, setDark] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("#banner");
 
   // 🌙 Toggle Dark/Light Mode
   const handleToggle = () => {
@@ -41,35 +40,14 @@ const Navbar = () => {
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
     }
+    // scroll complete hobar pore menu bondho korbo
     setTimeout(() => setIsOpen(false), 400);
   };
 
-  // 🎯 Detect Active Section While Scrolling
-  useEffect(() => {
-    const handleScrollSpy = () => {
-      const scrollY = window.scrollY;
-
-      menuLink.forEach((menu) => {
-        const section = document.querySelector(menu.id);
-        if (section) {
-          const sectionTop = section.offsetTop - 120; // navbar height adjust
-          const sectionHeight = section.offsetHeight;
-
-          if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-            setActiveSection(menu.id);
-          }
-        }
-      });
-    };
-
-    window.addEventListener("scroll", handleScrollSpy);
-    return () => window.removeEventListener("scroll", handleScrollSpy);
-  }, []);
-
   return (
-    <div className="poppins fixed top-4 left-0 right-0 z-50 flex justify-center">
+    <div className="poppins relative z-50">
       {/* Navbar Container */}
-      <div className="flex items-center justify-between bg-gray-800 text-white rounded-2xl border border-orange-500 p-3 shadow-lg hover:shadow-orange-400/30 w-[95%] lg:w-[80%] transition-all duration-300">
+      <div className="flex items-center justify-between bg-gray-800 text-white rounded-2xl border border-orange-500 p-3 shadow-lg hover:shadow-orange-400/30">
         {/* Logo */}
         <a href="#banner" className="text-2xl roboto font-bold">
           Port<span className="text-yellow-400">folio</span>
@@ -81,11 +59,7 @@ const Navbar = () => {
             <button
               key={menu.id}
               onClick={() => handleScroll(menu.id)}
-              className={`flex items-center gap-2 cursor-pointer duration-300 ${
-                activeSection === menu.id
-                  ? "text-yellow-400"
-                  : "hover:text-yellow-400"
-              }`}
+              className="flex items-center gap-2 cursor-pointer hover:text-yellow-400 duration-300"
             >
               {menu.icon}
               <span className="text-sm">{menu.name}</span>
@@ -144,11 +118,7 @@ const Navbar = () => {
           <button
             key={menu.id}
             onClick={() => handleScroll(menu.id)}
-            className={`flex items-center w-full px-6 gap-3 text-lg duration-300 ${
-              activeSection === menu.id
-                ? "text-yellow-400"
-                : "hover:text-yellow-400"
-            }`}
+            className="flex items-center w-full px-6 gap-3 text-lg hover:text-yellow-400 duration-300"
           >
             {menu.icon}
             {menu.name}
