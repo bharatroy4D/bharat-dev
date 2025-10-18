@@ -36,7 +36,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`w-full z-50 transition-all duration-500 border border-orange-500 rounded-2xl ${dark ? "bg-gray-800/80 text-white" : "bg-white text-gray-900"
+      className={`w-full z-50 transition-all duration-500 ${dark ? "bg-gray-800/80 text-white border border-orange-500 rounded-2xl" : "bg-gray-100/70 text-gray-900 border border-blue-400 rounded-2xl"
         } shadow-lg`}
     >
       {/* Container */}

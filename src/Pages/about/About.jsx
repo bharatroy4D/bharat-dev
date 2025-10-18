@@ -6,28 +6,26 @@ import {
   FaLightbulb,
   FaRocket,
 } from "react-icons/fa";
-import { useTheme } from "../../context/ThemeContext"; // 🌙 Import Theme Context
+import { useTheme } from "../../context/themeContext";
 
 const About = () => {
-  const { theme } = useTheme(); // ✅ Access current theme (dark/light)
+  const { theme } = useTheme();
 
   return (
     <section
       id="about"
-      className={`min-h-screen rounded-2xl border shadow-lg transition-all duration-500 py-16 md:py-24 px-6 flex flex-col justify-center items-center ${
-        theme === "dark"
+      className={`min-h-screen rounded-2xl border shadow-lg transition-all duration-500 py-16 md:py-24 px-6 flex flex-col justify-center items-center ${theme === "dark"
           ? "bg-gradient-to-b from-gray-800/80 to-gray-900/80 border-yellow-500 hover:shadow-yellow-400/30 text-white"
-          : "bg-gradient-to-b from-gray-100 to-gray-200 border-blue-400 hover:shadow-blue-400/30 text-gray-900"
-      }`}
+          : "bg-gradient-to-b from-gray-100/70 to-gray-200/60 border-blue-400 hover:shadow-blue-400/30 text-gray-900"
+        }`}
     >
       {/* Heading */}
       <motion.h2
         initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className={`text-3xl md:text-4xl font-bold mb-6 text-center ${
-          theme === "dark" ? "text-yellow-400" : "text-blue-600"
-        }`}
+        className={`text-3xl md:text-4xl font-bold mb-6 text-center ${theme === "dark" ? "text-yellow-400" : "text-blue-600"
+          }`}
       >
         About Me
       </motion.h2>
@@ -37,23 +35,20 @@ const About = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.8 }}
-        className={`text-center max-w-3xl leading-relaxed mb-12 ${
-          theme === "dark" ? "text-gray-400" : "text-gray-700"
-        }`}
+        className={`text-center max-w-3xl leading-relaxed mb-12 ${theme === "dark" ? "text-gray-400" : "text-gray-700"
+          }`}
       >
         I’m{" "}
         <span
-          className={`font-semibold ${
-            theme === "dark" ? "text-yellow-400" : "text-blue-600"
-          }`}
+          className={`font-semibold ${theme === "dark" ? "text-yellow-400" : "text-blue-600"
+            }`}
         >
           Bharat Roy
         </span>
         , a creative{" "}
         <span
-          className={`font-semibold ${
-            theme === "dark" ? "text-blue-400" : "text-purple-600"
-          }`}
+          className={`font-semibold ${theme === "dark" ? "text-blue-400" : "text-purple-600"
+            }`}
         >
           Frontend Developer
         </span>{" "}
@@ -95,9 +90,8 @@ const About = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.8 }}
-        className={`max-w-4xl mt-16 text-center leading-relaxed ${
-          theme === "dark" ? "text-gray-400" : "text-gray-700"
-        }`}
+        className={`max-w-4xl mt-16 text-center leading-relaxed ${theme === "dark" ? "text-gray-400" : "text-gray-700"
+          }`}
       >
         <p>
           I believe in building websites that not only function perfectly but
@@ -116,24 +110,21 @@ const InfoCard = ({ icon, title, text, theme }) => (
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.7 }}
-    className={`rounded-2xl p-6 text-center transition-all duration-300 border ${
-      theme === "dark"
+    className={`rounded-2xl p-6 text-center transition-all duration-300 border ${theme === "dark"
         ? "bg-gray-800/50 border-gray-700 hover:border-yellow-400/50 hover:shadow-yellow-400/20"
         : "bg-white border-gray-300 hover:border-blue-400/50 hover:shadow-blue-300/20"
-    }`}
+      }`}
   >
     {icon}
     <h3
-      className={`text-xl font-semibold mb-2 ${
-        theme === "dark" ? "text-white" : "text-gray-900"
-      }`}
+      className={`text-xl font-semibold mb-2 ${theme === "dark" ? "text-white" : "text-gray-900"
+        }`}
     >
       {title}
     </h3>
     <p
-      className={`text-sm leading-relaxed ${
-        theme === "dark" ? "text-gray-400" : "text-gray-700"
-      }`}
+      className={`text-sm leading-relaxed ${theme === "dark" ? "text-gray-400" : "text-gray-700"
+        }`}
     >
       {text}
     </p>

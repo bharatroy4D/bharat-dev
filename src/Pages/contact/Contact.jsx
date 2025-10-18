@@ -1,10 +1,10 @@
 import { Phone, Mail, MapPin, MessageSquare, Copy, ExternalLink } from 'lucide-react';
-import { useTheme } from "../../context/ThemeContext"; // 🌙 Theme context import
+import { useTheme } from '../../context/themeContext'; // 🌙 Theme context import
 
 const Contact = () => {
   const { theme } = useTheme();
 
-  const bgClass = theme === "dark" ? "from-slate-800/70 via-slate-700 to-teal-900 text-white" : "from-white via-gray-100 to-teal-200 text-gray-900";
+  const bgClass = theme === "dark" ? "bg-gray-800/80 text-white border border-orange-500" : "bg-gray-100/70 text-gray-900 border border-blue-400";
   const borderClass = theme === "dark" ? "border-lime-400" : "border-teal-600";
   const inputBgClass = theme === "dark" ? "bg-slate-800 text-gray-300 placeholder-gray-500" : "bg-white text-gray-900 placeholder-gray-500";
   const inputBorderClass = theme === "dark" ? "border-teal-700 focus:border-teal-500" : "border-teal-400 focus:border-teal-600";

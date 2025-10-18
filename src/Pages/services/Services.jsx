@@ -71,7 +71,7 @@ const Services = () => {
       className={`rounded-2xl border shadow-lg transition-all duration-500 py-16 px-6 lg:px-16 my-7 ${
         theme === "dark"
           ? "bg-slate-800/80 border-yellow-500 hover:shadow-yellow-400/30 text-white"
-          : "bg-gray-100 border-blue-400 hover:shadow-blue-400/30 text-gray-900"
+          : "bg-gray-100/70 border-blue-400 hover:shadow-blue-400/30 text-gray-900"
       }`}
     >
       {/* Hero Section */}

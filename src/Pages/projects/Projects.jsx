@@ -11,7 +11,7 @@ const ProjectCard = ({ image, title, description, technologies, links }) => {
       className={`rounded-2xl overflow-hidden transform transition-all duration-500 hover:scale-110 shadow-xl ${
         theme === "dark"
           ? "bg-slate-800/80 shadow-slate-400/40"
-          : "bg-white shadow-gray-400/30"
+          : "bg-white/80 shadow-gray-400/30"
       }`}
     >
       {/* Project Image */}
@@ -174,7 +174,7 @@ const Projects = () => {
       className={`min-h-screen rounded-2xl border shadow-lg transition-all duration-500 py-16 px-8 ${
         theme === "dark"
           ? "bg-slate-800/80 border-yellow-500 hover:shadow-yellow-400/30 text-white"
-          : "bg-gray-100 border-blue-400 hover:shadow-blue-400/30 text-gray-900"
+          : "bg-gray-100/70 border-blue-400 hover:shadow-blue-400/30 text-gray-900"
       }`}
     >
       <div className="max-w-7xl mx-auto">

@@ -18,7 +18,7 @@ import {
   SiMongodb,
   SiFigma,
 } from "react-icons/si";
-import { useTheme } from "../../context/ThemeContext"; // 🌙 Theme Context import
+import { useTheme } from "../../context/themeContext"; // 🌙 Theme Context import
 
 const skills = [
   { name: "HTML5", icon: <FaHtml5 /> },
@@ -47,7 +47,7 @@ const Skills = () => {
       className={`py-12 md:py-20 rounded-2xl border shadow-lg transition-all duration-500 mt-6 ${
         theme === "dark"
           ? "bg-gray-800/80 border-yellow-500 hover:shadow-yellow-400/30"
-          : "bg-gray-100 border-blue-400 hover:shadow-blue-400/30"
+          : "bg-gray-100/70 border-blue-400 hover:shadow-blue-400/30"
       }`}
     >
       <div className="container mx-auto px-6">

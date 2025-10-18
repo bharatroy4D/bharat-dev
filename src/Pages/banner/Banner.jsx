@@ -2,7 +2,7 @@ import React from "react";
 import { Facebook, Twitter, Linkedin, Github, Send } from "lucide-react";
 import { Typewriter } from "react-simple-typewriter";
 import profileImg from "../../assets/profileImg.png";
-import { useTheme } from "../../context/ThemeContext"; // 🌙 Import Theme Context
+import { useTheme } from "../../context/themeContext"; // 🌙 Import Theme Context
 
 const Banner = () => {
   const { theme } = useTheme(); // ✅ Access current theme (dark/light)
@@ -20,7 +20,7 @@ const Banner = () => {
       className={`relative rounded-2xl overflow-hidden border my-6 shadow-lg transition-all duration-500 ${
         theme === "dark"
           ? "bg-slate-800/80 border-yellow-500 hover:shadow-yellow-400/30 text-white"
-          : "bg-gray-100 border-blue-400 hover:shadow-blue-400/30 text-gray-900"
+          : "bg-gray-100/70 border-blue-400 hover:shadow-blue-400/30 text-gray-900"
       }`}
     >
       <div className="relative z-10 container mx-auto px-8 py-14 flex flex-col-reverse lg:flex-row items-center justify-around">
@@ -35,8 +35,8 @@ const Banner = () => {
           </div>
 
           <h1
-            className={`text-4xl lg:text-5xl font-bold ${
-              theme === "dark" ? "text-white" : "text-gray-900"
+            className={`text-3xl lg:text-4xl font-bold ${
+              theme === "dark" ? "text-white" : "text-gray-700"
             }`}
           >
             Mr. Bharat Roy

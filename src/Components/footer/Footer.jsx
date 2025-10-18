@@ -1,11 +1,11 @@
 import React from 'react';
 import { Github, Linkedin } from 'lucide-react';
-import { useTheme } from '../../context/ThemeContext'; // 🌙 Theme context import
+import { useTheme } from '../../context/themeContext'; // 🌙 Theme context import
 
 const Footer = () => {
   const { theme } = useTheme();
 
-  const bgClass = theme === "dark" ? "bg-slate-800/80 text-white" : "bg-gray-100 text-gray-900";
+  const bgClass = theme === "dark" ? "bg-gray-800/80 text-white" : "bg-gray-100/70 text-gray-900";
   const textHoverClass = theme === "dark" ? "hover:text-white" : "hover:text-teal-700";
   const iconColor = theme === "dark" ? "text-gray-400 hover:text-white" : "text-gray-700 hover:text-teal-700";
   const borderColor = theme === "dark" ? "border-lime-400" : "border-teal-600";
