@@ -39,24 +39,29 @@ const skills = [
 
 const Skills = () => {
   return (
-    <section className="py-20 bg-gray-800" id="skills">
+    <section className="py-16 bg-gray-800/80 rounded-2xl border border-orange-500 mt-6" id="skills">
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center text-white mb-16">
-          My Skills
+         <h2 className="text-3xl font-bold text-white mb-6 flex items-center justify-center gap-4">
+          <span className="w-16 h-0.5 bg-pink-500"></span>
+          <h1 className="text-yellow-400">My Skills</h1>
+          <span className="w-16 h-0.5 bg-pink-500"></span>
         </h2>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
+        <div className="flex flex-wrap justify-center gap-6">
           {skills.map((skill, idx) => (
             <div
               key={idx}
-              className="group relative flex flex-col items-center justify-center p-6 w-full bg-gray-900 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
+              className="group relative flex flex-col items-center justify-center w-40 h-24 bg-gray-900 rounded-lg shadow-md transition-all duration-300 cursor-pointer hover:scale-105"
+              style={{
+                boxShadow:
+                  "0 0 0px rgba(0,0,0,0)", // default no shadow
+              }}
             >
-              {/* Glow effect */}
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-300"></div>
+              <div className="absolute inset-0 rounded-lg transition-shadow duration-300 group-hover:shadow-[0_0_20px_orange]"></div>
 
-              <div className="relative z-10 flex flex-col items-center justify-center transform transition-transform duration-500 group-hover:scale-110">
-                <div className="text-5xl mb-4 animate-bounce-slow">{skill.icon}</div>
-                <span className="text-white font-semibold text-center">{skill.name}</span>
+              <div className="relative z-10 flex flex-col items-center justify-center">
+                <div className="text-4xl mb-2">{skill.icon}</div>
+                <span className="text-white text-sm font-medium text-center">{skill.name}</span>
               </div>
             </div>
           ))}
