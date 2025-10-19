@@ -8,10 +8,10 @@ const Footer = () => {
   const bgClass = theme === "dark" ? "bg-gray-800/80 text-white" : "bg-gray-100/70 text-gray-900";
   const textHoverClass = theme === "dark" ? "hover:text-white" : "hover:text-teal-700";
   const iconColor = theme === "dark" ? "text-gray-400 hover:text-white" : "text-gray-700 hover:text-teal-700";
-  const borderColor = theme === "dark" ? "border-lime-400" : "border-teal-600";
+  const borderColor = theme === "dark" ? " border-t border-orange-500 " : "border-t border-blue-400";
 
   return (
-    <footer className={`${bgClass} p-8 transition-all duration-500`}>
+    <footer className={`${bgClass} ${borderColor} p-8 transition-all duration-500`}>
       <div className="max-w-7xl mx-auto">
         {/* Logo/Name Section */}
         <div className="flex justify-center items-center gap-2 mb-4">

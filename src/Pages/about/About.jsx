@@ -24,7 +24,7 @@ const About = () => {
         initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className={`text-3xl md:text-4xl font-bold mb-6 text-center ${theme === "dark" ? "text-yellow-400" : "text-blue-600"
+        className={`text-3xl md:text-4xl  mb-6 text-center ${theme === "dark" ? "text-yellow-400" : "text-blue-600"
           }`}
       >
         About Me
