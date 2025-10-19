@@ -47,7 +47,7 @@ const Navbar = () => {
       >
         {/* Logo */}
         <a href="#banner" className="text-2xl font-bold">
-          Port<span className="text-yellow-400">folio</span>
+          Port<span className={`${dark ? 'text-yellow-400': 'text-blue-600'} `}>folio</span>
         </a>
 
         {/* Desktop Menu */}
