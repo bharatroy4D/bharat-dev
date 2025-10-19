@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { Eye, Code, Server } from 'lucide-react';
-import { useTheme } from "../../context/ThemeContext"; // 🌙 Theme Context import
+import { useTheme } from '../../context/themeContext'; // 🌙 Theme Context import
 
 const ProjectCard = ({ image, title, description, technologies, links }) => {
   const { theme } = useTheme();
 
   return (
     <div
-      className={`rounded-2xl overflow-hidden transform transition-all duration-500 hover:scale-110 shadow-xl ${
+      className={`rounded-2xl overflow-hidden transform transition-all duration-500 hover:scale-110 hover:shadow-xl ${
         theme === "dark"
-          ? "bg-slate-800/80 shadow-slate-400/40"
+          ? "bg-slate-900/80 shadow-slate-400/40"
           : "bg-white/80 shadow-gray-400/30"
       }`}
     >
