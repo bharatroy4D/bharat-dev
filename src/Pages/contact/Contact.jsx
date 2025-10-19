@@ -103,7 +103,7 @@ const Contact = () => {
               {
                 icon: <Mail className={`w-6 h-6 ${theme === "dark" ? "text-lime-400" : "text-teal-600"}`} />,
                 title: "Email",
-                value: "bharatroy1005@gmail.com",
+                value: `bharatroy1005@gmail.com`,
                 copy: true,
               },
               {

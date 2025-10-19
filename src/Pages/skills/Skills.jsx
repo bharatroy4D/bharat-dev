@@ -71,11 +71,11 @@ const Skills = () => {
           ></span>
         </h2>
 
-        <div className="flex flex-wrap justify-center gap-6">
+        <div className=" grid grid-cols-2 md:flex md:flex-wrap justify-center gap-6">
           {skills.map((skill, idx) => (
             <div
               key={idx}
-              className={`group relative flex flex-col items-center justify-center w-40 h-24 rounded-lg shadow-md transition-all duration-300 cursor-pointer hover:scale-105 ${
+              className={`group relative flex flex-col items-center justify-center w-36 md:w-40 h-24 rounded-lg shadow-md transition-all duration-300 cursor-pointer hover:scale-105 ${
                 theme === "dark"
                   ? "bg-gray-900 text-white hover:shadow-[0_0_20px_rgba(253,224,71,0.6)]"
                   : "bg-white text-gray-900 hover:shadow-[0_0_20px_rgba(59,130,246,0.5)]"

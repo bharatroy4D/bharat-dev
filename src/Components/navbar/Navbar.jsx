@@ -6,6 +6,7 @@ import {
   FaEnvelope,
   FaDownload,
   FaProjectDiagram,
+  FaLaptopCode,
 } from "react-icons/fa";
 import { IoIosClose } from "react-icons/io";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
@@ -16,6 +17,7 @@ const Navbar = () => {
   const menuLink = [
     { id: "#banner", name: "Home", icon: <FaHome /> },
     { id: "#about", name: "About", icon: <FaUser /> },
+    { id: "#skills", name: "Skills", icon: <FaLaptopCode /> },
     { id: "#services", name: "Services", icon: <FaServicestack /> },
     { id: "#projects", name: "Projects", icon: <FaProjectDiagram /> },
     { id: "#contact", name: "Contact", icon: <FaEnvelope /> },
@@ -41,7 +43,7 @@ const Navbar = () => {
     >
       {/* Container */}
       <div
-        className={`flex items-center justify-between px-5 py-3 md:px-10 `}
+        className={`flex items-center justify-between px-5 py-4 md:px-10 `}
       >
         {/* Logo */}
         <a href="#banner" className="text-2xl font-bold">

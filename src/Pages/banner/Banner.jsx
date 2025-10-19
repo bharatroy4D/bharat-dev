@@ -23,7 +23,7 @@ const Banner = () => {
           : "bg-gray-100/70 border-blue-400 hover:shadow-blue-400/30 text-gray-900"
       }`}
     >
-      <div className="relative z-10 container mx-auto px-8 py-14 flex flex-col-reverse lg:flex-row items-center justify-around">
+      <div className="relative z-10 container mx-auto px-8 py-14 md:py-24 flex flex-col-reverse lg:flex-row items-center justify-around">
         {/* 🟢 Left Side - Text */}
         <div className="space-y-6 text-center lg:text-left">
           <div
