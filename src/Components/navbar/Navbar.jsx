@@ -38,7 +38,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`w-full z-50 transition-all duration-500 ${dark ? "bg-gray-800/80 text-white border border-orange-500 rounded-2xl" : "bg-gray-100/70 text-gray-900 border border-blue-400 rounded-2xl"
+      className={`w-full z-50 transition-all duration-500 shadow-lg ${dark ? "bg-gray-800/80 text-white border border-orange-500 rounded-2xl hover:shadow-yellow-400/30" : "bg-gray-100/70 text-gray-900 border border-blue-400 rounded-2xl"
         } shadow-lg`}
     >
       {/* Container */}
@@ -73,7 +73,7 @@ const Navbar = () => {
           <button
             onClick={toggleTheme}
             className={`p-2 rounded-full shadow-md duration-300 ${dark
-                ? "bg-gray-700 hover:bg-gray-600 text-yellow-400"
+                ? "bg-gray-700 hover:bg-gray-600 text-white"
                 : "bg-gray-200 hover:bg-gray-300 text-gray-800"
               }`}
           >

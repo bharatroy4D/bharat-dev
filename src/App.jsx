@@ -39,7 +39,7 @@ const AppContent = () => {
                   d="M 30 0 L 0 0 0 30"
                   fill="none"
                   stroke={gridStroke}
-                  strokeWidth="2"
+                  strokeWidth=""
                 />
               </pattern>
             </defs>
@@ -58,7 +58,7 @@ const AppContent = () => {
                   d="M 30 0 L 0 0 0 30"
                   fill="none"
                   stroke={gridStroke}
-                  strokeWidth="2"
+                  strokeWidth=""
                 />
               </pattern>
             </defs>
