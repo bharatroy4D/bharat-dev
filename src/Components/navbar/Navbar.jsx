@@ -102,7 +102,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 right-0 h-screen w-2/3 transform transition-transform duration-500 ease-in-out lg:hidden flex flex-col items-center py-5 gap-8 ${dark
+        className={`fixed top-6 right-0 z-20 h-screen w-2/3 transform transition-transform duration-500 ease-in-out lg:hidden flex flex-col items-center py-5 gap-8 ${dark
             ? "bg-gray-900 text-white border-l border-yellow-400"
             : "bg-gray-100 text-gray-900 border-l border-blue-400"
           } ${isOpen ? "translate-x-0" : "translate-x-full"}`}

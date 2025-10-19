@@ -68,7 +68,7 @@ const AppContent = () => {
       </div>
 
       {/* Page Content */}
-      <div className="container relative mx-auto py-6 px-4 lg:px-15 poppins z-10">
+      <div className="container mx-auto py-6 px-4 lg:px-15 poppins z-10">
         <Navbar />
         <Banner />
         <About />
