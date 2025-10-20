@@ -95,7 +95,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button onClick={handleMenus} className="lg:hidden text-2xl">
-            {isOpen ? <IoIosClose /> : <RxHamburgerMenu />}
+            {isOpen ? <IoIosClose /> : <RxHamburgerMenu className="border rounded p-1" />}
           </button>
         </div>
       </div>
