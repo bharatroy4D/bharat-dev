@@ -77,7 +77,7 @@ const Navbar = () => {
                 : "bg-gray-200 hover:bg-gray-300 text-gray-800"
               }`}
           >
-            {dark ? <MdLightMode size={20} /> : <MdDarkMode size={20} />}
+            {dark ? <MdLightMode size={18} /> : <MdDarkMode size={18} />}
           </button>
 
           {/* Resume (Desktop only) */}
@@ -95,7 +95,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button onClick={handleMenus} className="lg:hidden text-2xl">
-            {isOpen ? <IoIosClose /> : <RxHamburgerMenu className="border rounded p-1" />}
+            {isOpen ? <IoIosClose /> : <RxHamburgerMenu className="border rounded-lg p-1 text-3xl" />}
           </button>
         </div>
       </div>
