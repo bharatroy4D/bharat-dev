@@ -157,7 +157,7 @@ const Projects = () => {
       },
       links: {
         live: "https://shopzen-ruddy.vercel.app/",
-        code: "https://github.com/bharatroy4D/food-project",
+        code: "https://github.com/bharatroy4D/Sopzen",
         server: "https://github.com/bharatroy4D/organic-backend",
       },
     },
