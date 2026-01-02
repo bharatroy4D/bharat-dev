@@ -82,7 +82,7 @@ const Navbar = () => {
 
           {/* Resume (Desktop only) */}
           <a
-            href="https://drive.google.com/file/d/1ewYkksnTMzcMpkdw4xSP7HDTba8g3yth/view"
+            href="https://drive.google.com/file/d/1bG8k1ADORPy4___5E1XRkLNUBR1RMaf5/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className={`hidden lg:flex items-center gap-2 px-4 py-2 rounded-full font-medium shadow-md duration-300 ${dark
@@ -127,7 +127,7 @@ const Navbar = () => {
         ))}
 
         <a
-          href="https://drive.google.com/file/d/1ewYkksnTMzcMpkdw4xSP7HDTba8g3yth/view"
+          href="https://drive.google.com/file/d/1bG8k1ADORPy4___5E1XRkLNUBR1RMaf5/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
           className={`flex items-center gap-2 px-4 py-2 rounded-full shadow-md font-medium duration-300 ${dark
