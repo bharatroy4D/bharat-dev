@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Eye, Code, Server } from "lucide-react";
 import EcommerceImg from "../../assets/portfolio.png";
+import blogs from "../../assets/blogsSite.png";
+import travel from "../../assets/travel.png";
+// import travel from "../../assets/portfolio.png";
 import { useTheme } from "../../context/themeContext";
 
 const ProjectCard = ({ image, title, description, technologies, links }) => {
@@ -113,17 +116,17 @@ const ProjectCard = ({ image, title, description, technologies, links }) => {
 
 const Projects = () => {
   const { theme } = useTheme();
-  const [currentSlide, setCurrentSlide] = useState(0);
+  // const [currentSlide, setCurrentSlide] = useState(0);
 
   const projects = [
     {
-      image: "https://i.ibb.co/fGkbHTKx/download-4.jpg",
+      image: blogs,
       title: "Blogs Website",
       description:
         "Developed a modern blog platform with CRUD and authentication features.",
       technologies: {
         frontend: ["React", "Redux", "Tailwind"],
-        backend: ["Node", "Express", "MongoDB"],
+        backend: ["Firebase"],
       },
       links: {
         live: "https://infodrift-blogs.netlify.app/",
@@ -132,13 +135,13 @@ const Projects = () => {
       },
     },
     {
-      image: "https://i.ibb.co/TDgxHxbV/download.jpg",
+      image: travel,
       title: "Travel Tourism",
       description:
         "Built a dynamic travel booking app with secure user dashboard.",
       technologies: {
         frontend: ["React", "Context API", "Tailwind"],
-        backend: ["Node", "Express", "MongoDB"],
+        backend: ["Firebase"],
       },
       links: {
         live: "https://travel-flyexplore.netlify.app/",
@@ -152,8 +155,8 @@ const Projects = () => {
       description:
         "E-commerce project with shopping cart, filter, and checkout system.",
       technologies: {
-        frontend: ["React", "Redux Toolkit", "Tailwind"],
-        backend: ["Node", "Express", "MongoDB"],
+        frontend: ["React", "Context API", "Tailwind"],
+        backend: ["Firebase"],
       },
       links: {
         live: "https://shopzen-ruddy.vercel.app/",
@@ -171,9 +174,23 @@ const Projects = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center mb-12">
-          My <span className="text-blue-500">Projects</span>
-        </h2>
+        <span
+            className={`w-16 h-0.5 transition-colors duration-300 ${
+              theme === "dark" ? "bg-pink-500" : "bg-blue-500"
+            }`}
+          ></span>
+        <h1
+            className={`text-2xl font-bold mb-12 text-center transition-colors duration-300 ${
+              theme === "dark" ? "text-yellow-400" : "text-blue-600"
+            }`}
+          >
+            My Projects
+          </h1>
+          <span
+            className={`w-16 h-0.5 transition-colors duration-300 ${
+              theme === "dark" ? "bg-pink-500" : "bg-blue-500"
+            }`}
+          ></span>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
